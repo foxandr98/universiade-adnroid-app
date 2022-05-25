@@ -8,6 +8,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import net.foxandr.sport.universiade.databinding.ActivityMainBinding;
 import net.foxandr.sport.universiade.ui.main.ViewPager2Adapter;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
     TabLayout tabLayout;
 
     List<String> titles;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +45,11 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
 
         viewPager2 = findViewById(R.id.view_pager2);
         tabLayout = findViewById(R.id.tabs);
+        toolbar = findViewById(R.id.toolbar);
+
         titles = Arrays.asList("Главная", "Новости", "Бюро находок");
 
+        setSupportActionBar(toolbar);
         setViewPagerAdapter();
         new TabLayoutMediator(tabLayout, viewPager2, this).attach();
     }
@@ -58,10 +64,30 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         );
         adapter.setData(fragmentList);
         viewPager2.setAdapter(adapter);
+
     }
 
     @Override
     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
         tab.setText(titles.get(position));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item){
+//        switch(item.getItemId()){
+//            case R.id.test:
+//                Toast.makeText(this, "item 1 selected", Toast.LENGTH_SHORT).show();
+//                return true;
+//            case R.id.test1:
+//                Toast.makeText(this, "item 2 selected", Toast.LENGTH_SHORT).show();
+//                return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }

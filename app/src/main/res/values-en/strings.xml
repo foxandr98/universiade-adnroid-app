@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Universiades</string>
+    <string name="app_name">StudSport</string>
 
     <string name="tab_home">Main</string>
     <string name="tab_news">News</string>

@@ -2,35 +2,35 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <item  android:id="@+id/test1"-->
-<!--            android:orderInCategory="80"-->
-<!--            android:title="First item" />-->
-<!--    <item  android:id="@+id/test12"-->
-<!--            android:orderInCategory="90"-->
-<!--            android:title="Second item" />-->
-    <item  android:id="@+id/test3"
-            android:title="Login" />
+    <item
+            android:id="@+id/menu_login"
+            android:title="@string/login"
+            android:icon="@drawable/ic_baseline_login_24"
+            app:showAsAction="ifRoom|withText"
+            android:orderInCategory="0"/>
 
     <item
-            android:id="@+id/test"
-            android:title="Language"
-            android:icon="@drawable/ic_baseline_language_24">
+            android:id="@+id/menu_language"
+            android:title="@string/language"
+            android:icon="@drawable/ic_baseline_language_24"
+            app:showAsAction="ifRoom"
+            android:orderInCategory="100">
         <menu>
-            <item  android:id="@+id/sub1"
-                    android:title="RU"
-                    android:icon="@drawable/russia"
-                    app:showAsAction="withText"/>
-            <item  android:id="@+id/sub2"
-                    android:title="EN"
-                    android:icon="@drawable/usa"
-                    app:showAsAction="withText"
-                    />
-            <item  android:id="@+id/sub3"
-                    android:title="DE"
-                    android:icon="@drawable/germany"
-                    app:showAsAction="withText"/>
+            <group>
+                <item
+                        android:id="@+id/menu_ru"
+                        android:title="@string/ru"
+                        android:checked="true"
+                        android:icon="@drawable/russia" />
+                <item
+                        android:id="@+id/menu_en"
+                        android:title="@string/en"
+                        android:icon="@drawable/uk" />
+                <item
+                        android:id="@+id/menu_de"
+                        android:title="@string/de"
+                        android:icon="@drawable/germany" />
+            </group>
         </menu>
-
-
     </item>
 </menu>

@@ -14,11 +14,12 @@
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:text="@string/app_name"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        </androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"

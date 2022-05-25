@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">СтудСпорт</string>
+
+    <string name="tab_home">Главная</string>
+    <string name="tab_news">Новости</string>
+    <string name="tab_lost_found">Бюро находок</string>
+
+    <string name="hello_blank_fragment">Привет чистый лист</string>
+
+    <string name="login">Войти</string>
+
+    <string name="language">Язык</string>
+
+    <string name="locale_image_path">russia.png</string>
+
+    <string name="ru">RU</string>
+    <string name="en">EN</string>
+    <string name="de">DE</string>
+
+</resources>

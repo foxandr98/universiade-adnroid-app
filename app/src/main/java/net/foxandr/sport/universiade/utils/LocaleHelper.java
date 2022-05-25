@@ -14,8 +14,15 @@ import net.foxandr.sport.universiade.MainActivity;
 import net.foxandr.sport.universiade.R;
 
 import java.util.Locale;
+import java.util.Map;
 
 public class LocaleHelper {
+
+    public static final Map<String, Integer> LOCALE_IMAGES = Map.ofEntries(
+            Map.entry("en", R.drawable.uk),
+            Map.entry("ru", R.drawable.russia),
+            Map.entry("de", R.drawable.germany)
+    );
 
     public static String initLocale(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(
@@ -32,7 +39,7 @@ public class LocaleHelper {
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("language", lang);
-//        editor.putInt("drawable_id", lang);
+
         editor.commit();
 
         configure(context, lang);
@@ -51,22 +58,14 @@ public class LocaleHelper {
         res.updateConfiguration(conf, dm);
     }
 
-    public static void setMenuLocaleIcon(Context context, Menu menu, String lang){
-        int drawable_id = 0;
-        switch(lang){
-            case "ru":
-                drawable_id = R.drawable.russia;
-                break;
-            case "de":
-                drawable_id = R.drawable.germany;
-                break;
-            default:
-                drawable_id = R.drawable.uk;
+    public static void setMenuLocaleIcon(Context context, Menu menu, String lang) {
+        try {
+            menu.getItem(1).setIcon(ContextCompat.getDrawable(
+                    context,
+                    LOCALE_IMAGES.get(lang)
+            ));
+        } catch (NullPointerException ex) {
+            System.out.println("Несуществующий язык");
         }
-        menu.getItem(1).setIcon(ContextCompat.getDrawable(
-                context,
-                drawable_id
-        ));
     }
-
 }

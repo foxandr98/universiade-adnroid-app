@@ -1,45 +1,34 @@
 package net.foxandr.sport.universiade;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import net.foxandr.sport.universiade.databinding.ActivityMainBinding;
 import net.foxandr.sport.universiade.ui.main.ViewPager2Adapter;
+import net.foxandr.sport.universiade.ui.home.HomeFragment;
+import net.foxandr.sport.universiade.ui.lostfound.LostFoundFragment;
+import net.foxandr.sport.universiade.ui.news.NewsFragment;
 import net.foxandr.sport.universiade.utils.LocaleHelper;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements TabLayoutMediator.TabConfigurationStrategy {
 
     //    private ActivityMainBinding binding;
-    String initialLocale;
+    String appLocale;
 
     ViewPager2 viewPager2;
     TabLayout tabLayout;
@@ -51,8 +40,8 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (initialLocale == null)
-            initialLocale = LocaleHelper.initLocale(this);
+        if (appLocale == null)
+            appLocale = LocaleHelper.initLocale(this);
 //        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
         viewPager2 = findViewById(R.id.view_pager2);
@@ -91,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        LocaleHelper.setMenuLocaleIcon(this, menu, initialLocale);
+        LocaleHelper.setMenuLocaleIcon(this, menu, appLocale);
         return true;
     }
 
@@ -100,28 +89,24 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         switch (item.getItemId()) {
             case R.id.menu_ru:
                 finish();
-                LocaleHelper.setLocale(this,"ru");
-                item.getIcon();
-                LocaleHelper.setMenuLocaleIcon(this, menu, "ru");
-                Toast.makeText(this, "Выбран русский язык", Toast.LENGTH_SHORT).show();
-                item.setChecked(true);
+                setLocaleAndMenuIcon("ru", "Выбран русский язык");
                 break;
             case R.id.menu_en:
                 finish();
-                LocaleHelper.setLocale(this, "en");
-                LocaleHelper.setMenuLocaleIcon(this, menu, "en");
-                Toast.makeText(this, "English language selected", Toast.LENGTH_SHORT).show();
-                item.setChecked(true);
+                setLocaleAndMenuIcon("en", "English language selected");
                 break;
             case R.id.menu_de:
                 finish();
-                LocaleHelper.setLocale(this,"de");
-                LocaleHelper.setMenuLocaleIcon(this, menu, "de");
-                Toast.makeText(this, "Ausgewählte deutsche Sprache", Toast.LENGTH_SHORT).show();
-                item.setChecked(true);
+                setLocaleAndMenuIcon("de", "Ausgewählte deutsche Sprache");
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setLocaleAndMenuIcon(String locale, String message){
+        LocaleHelper.setLocale(this,locale);
+        LocaleHelper.setMenuLocaleIcon(this, menu, locale);
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }

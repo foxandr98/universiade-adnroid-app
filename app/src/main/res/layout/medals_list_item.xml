@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <TextView
+            android:id="@+id/medals_rank"
+            android:text="rank"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+            android:id="@+id/medals_flag"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/medals_rank"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="7"/>
+
+    <TextView
+            android:id="@+id/medals_country_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Название"
+            app:layout_constraintLeft_toRightOf="@+id/medals_flag"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/medals_ioc_name"
+            app:layout_constraintHorizontal_weight="2"/>
+
+    <TextView
+            android:id="@+id/medals_ioc_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Столица"
+            app:layout_constraintLeft_toRightOf="@+id/medals_flag"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="7"/>
+
+    <TextView
+            android:id="@+id/medals_gold_count"
+            android:text="gold"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/medals_ioc_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="2" />
+
+    <TextView
+            android:id="@+id/medals_silver_count"
+            android:text="silver"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/medals_gold_count"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="2" />
+
+    <TextView
+            android:id="@+id/medals_bronze_count"
+            android:text="bronze"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/medals_silver_count"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="2" />
+
+    <TextView
+            android:id="@+id/medals_total_count"
+            android:text="total"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/medals_bronze_count"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="2" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

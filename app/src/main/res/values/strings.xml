@@ -21,4 +21,7 @@
 
     <string name="medals_country_name">Country name</string>
 
+    <string name="title">Title</string>
+    <string name="news_created_on">Publication time</string>
+
 </resources>

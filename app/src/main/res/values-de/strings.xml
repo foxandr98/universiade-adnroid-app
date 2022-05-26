@@ -20,4 +20,7 @@
 
     <string name="medals_country_name">Ländername</string>
 
+    <string name="title">Titel</string>
+    <string name="news_created_on">Veröffent\nlichungszeit</string>
+
 </resources>

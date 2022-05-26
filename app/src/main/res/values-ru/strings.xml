@@ -20,5 +20,7 @@
     <string name="de">DE</string>
 
     <string name="medals_country_name">Страна</string>
+    <string name="title">Заголовок</string>
+    <string name="news_created_on">Время\nпубликации</string>
 
 </resources>

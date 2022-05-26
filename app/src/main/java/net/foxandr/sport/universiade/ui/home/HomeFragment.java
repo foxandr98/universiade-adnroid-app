@@ -33,11 +33,7 @@ public class HomeFragment extends Fragment {
 
     private String locale;
 
-    ListView medalsDTOList;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
+    public HomeFragment() {}
 
     public static HomeFragment newInstance(String locale) {
         HomeFragment fragment = new HomeFragment();
@@ -58,7 +54,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
 
     }
@@ -66,7 +61,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        medalsDTOList = view.findViewById(R.id.medals_dto_list);
+        ListView medalsDTOList = view.findViewById(R.id.medals_dto_list);
 
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<MedalsDTO>> call = api.getMedalsByLocale(locale);

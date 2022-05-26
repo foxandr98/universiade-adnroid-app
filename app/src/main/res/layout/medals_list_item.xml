@@ -8,7 +8,7 @@
             android:id="@+id/medals_rank"
             android:text="rank"
             android:layout_weight="1"
-            style="@style/medals_number_style" />
+            style="@style/great_text_style" />
 
     <ImageView
             android:id="@+id/medals_flag"
@@ -44,24 +44,24 @@
     <TextView
             android:id="@+id/medals_gold_count"
             android:text="gold"
-            style="@style/medals_number_style"
+            style="@style/great_text_style"
             android:layout_weight="1" />
 
     <TextView
             android:id="@+id/medals_silver_count"
             android:text="silver"
-            style="@style/medals_number_style"
+            style="@style/great_text_style"
             android:layout_weight="1" />
 
     <TextView
             android:id="@+id/medals_bronze_count"
             android:text="bronze"
-            style="@style/medals_number_style"
+            style="@style/great_text_style"
             android:layout_weight="1" />
 
     <TextView
             android:id="@+id/medals_total_count"
             android:text="total"
-            style="@style/medals_number_style"
+            style="@style/great_text_style"
             android:layout_weight="1" />
 </LinearLayout>

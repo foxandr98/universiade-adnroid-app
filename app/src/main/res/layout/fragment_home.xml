@@ -3,11 +3,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.HomeFragment"
+        tools:context=".ui.news.NewsFragment"
         android:orientation="vertical">
 
     <LinearLayout
-            android:id="@+id/medals_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -16,43 +15,47 @@
                 android:src="@drawable/medal_rank"
                 android:text="rank"
                 android:layout_weight="1"
-                style="@style/medals_number_style" />
+                style="@style/great_text_style" />
+
         <TextView
                 android:text="@string/medals_country_name"
                 android:layout_weight="5"
-                style="@style/medals_number_style"
-                android:textStyle="bold"/>
+                style="@style/great_text_style"
+                android:textStyle="bold" />
+
         <ImageView
                 android:src="@drawable/medal_gold"
                 android:text="rank"
                 android:layout_weight="1"
-                style="@style/medals_number_style" />
+                style="@style/great_text_style" />
+
         <ImageView
                 android:src="@drawable/medal_silver"
                 android:text="rank"
                 android:layout_weight="1"
-                style="@style/medals_number_style" />
+                style="@style/great_text_style" />
+
         <ImageView
                 android:src="@drawable/medal_bronze"
                 android:text="rank"
                 android:layout_weight="1"
-                style="@style/medals_number_style" />
+                style="@style/great_text_style" />
+
         <ImageView
                 android:src="@drawable/medal_total"
                 android:text="rank"
                 android:layout_weight="1"
-                style="@style/medals_number_style" />
+                style="@style/great_text_style" />
     </LinearLayout>
 
     <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"/>
+            android:background="@android:color/darker_gray" />
 
     <ListView
             android:id="@+id/medals_dto_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
- />
+            android:layout_height="match_parent" />
 
 </LinearLayout>

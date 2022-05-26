@@ -1,6 +1,7 @@
 package net.foxandr.sport.universiade.ui.medals.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class MedalsDTOAdapter extends ArrayAdapter<MedalsDTO> {
         bronzeCount.setText(String.valueOf(medalsDTO.getBronzeCount()));
         totalCount.setText(String.valueOf(medalsDTO.getTotal()));
 
+        view.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#DEDEDE"));
         return view;
     }
 

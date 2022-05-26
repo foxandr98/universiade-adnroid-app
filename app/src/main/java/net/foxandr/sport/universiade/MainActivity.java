@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         getSupportActionBar().setTitle(res.getString(R.string.app_name));
         setViewPagerAdapter();
         new TabLayoutMediator(tabLayout, viewPager2, this).attach();
+        AndroidThreeTen.init(this);
 //        setContentView(binding.getRoot());
     }
 

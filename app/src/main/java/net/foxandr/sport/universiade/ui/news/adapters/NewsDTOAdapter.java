@@ -1,6 +1,7 @@
 package net.foxandr.sport.universiade.ui.news.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 
 import org.threeten.bp.Instant;
 import org.threeten.bp.LocalDateTime;
+import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.ZoneOffset;
 import org.threeten.bp.format.DateTimeFormatter;
 
 import java.util.List;
@@ -42,17 +46,24 @@ public class NewsDTOAdapter extends ArrayAdapter<NewsDTO> {
 //        ImageView flagView = view.findViewById(R.id.medals_flag);
         NewsDTO newsDTO = newsDTOList.get(position);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        title.setText(String.valueOf(newsDTO.getNewsTEntities().get(0).getTitle()));
+        try{
+            OffsetDateTime dateTime = newsDTO.getCreatedOn();
+            createdOn.setText(dateTime.format(
+                    DateTimeFormatter.ofPattern("HH:mm uuuu-MM-dd")
+            ));
+        }
+        catch (Exception e){
 
-//        title.setText(String.valueOf(newsDTO.getNewsTEntities().get(0).getTitle()));
-        //createdOn.setText(formatter.format(newsDTO.getCreatedOn()));
-        createdOn.setText(newsDTO.getCreatedOn().toString());
+        }
+
         
 //        flagView.setImageResource(getContext().getResources().
 //                getIdentifier("flag_" + medalsDTO.getIocName().toLowerCase(),
 //                        "drawable",
 //                        getContext().getPackageName()));
 
+        view.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#DEDEDE"));
         return view;
     }
 

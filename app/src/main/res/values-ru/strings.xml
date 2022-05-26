@@ -19,4 +19,6 @@
     <string name="en">EN</string>
     <string name="de">DE</string>
 
+    <string name="medals_country_name">Страна</string>
+
 </resources>

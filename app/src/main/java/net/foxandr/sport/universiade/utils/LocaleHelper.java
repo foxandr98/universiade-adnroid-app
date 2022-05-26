@@ -17,9 +17,9 @@ import java.util.Map;
 public class LocaleHelper {
 
     public static final Map<String, Integer> LOCALE_IMAGES = Map.ofEntries(
-            Map.entry("en", R.drawable.uk),
-            Map.entry("ru", R.drawable.russia),
-            Map.entry("de", R.drawable.germany)
+            Map.entry("en", R.drawable.menu_uk),
+            Map.entry("ru", R.drawable.menu_russia),
+            Map.entry("de", R.drawable.menu_germany)
     );
 
     public static String initLocale(Context context) {

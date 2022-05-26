@@ -43,7 +43,10 @@ public class MedalsDTOAdapter extends ArrayAdapter<MedalsDTO> {
         MedalsDTO medalsDTO = medalsDTOs.get(position);
 
         rankName.setText(String.valueOf(medalsDTO.getRank()));
-//        flagView.setImageResource(medalsDTO.getFlagResource());
+        flagView.setImageResource(getContext().getResources().
+                getIdentifier("flag_" + medalsDTO.getIocName().toLowerCase(),
+                        "drawable",
+                        getContext().getPackageName()));
         countryViewName.setText(medalsDTO.getCountryName());
         iocName.setText(medalsDTO.getIocName());
         goldCount.setText(String.valueOf(medalsDTO.getGoldCount()));

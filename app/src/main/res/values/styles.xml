@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="NavigationViewStyle">
-        <item name="android:textSize">16sp</item> <!-- menu item text size-->
-        <item name="android:listPreferredItemHeightSmall">40dp</item><!-- menu item height-->
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:textColorSecondary">#FFB300</item>
+    <style name="medals_number_style">
+<!--        <item name="android:textColorPrimary">@android:color/white</item>-->
+<!--        <item name="android:textColorSecondary">#FFB300</item>-->
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center_horizontal|center_vertical</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
     </style>
 </resources>

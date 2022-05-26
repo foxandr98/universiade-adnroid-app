@@ -20,15 +20,15 @@
                 <item
                         android:id="@+id/menu_ru"
                         android:title="@string/ru"
-                        android:icon="@drawable/russia" />
+                        android:icon="@drawable/menu_russia" />
                 <item
                         android:id="@+id/menu_en"
                         android:title="@string/en"
-                        android:icon="@drawable/uk" />
+                        android:icon="@drawable/menu_uk" />
                 <item
                         android:id="@+id/menu_de"
                         android:title="@string/de"
-                        android:icon="@drawable/germany" />
+                        android:icon="@drawable/menu_germany" />
             </group>
         </menu>
     </item>

@@ -14,7 +14,7 @@ public interface UniversiadeApi {
     @GET("news?")
     Call<List<NewsDTO>> getNewsByLocale(@Query("locale") String locale);
 
-    @GET("games/1/medals?")
+    @GET("games/2/medals?")
     Call<List<MedalsDTO>> getMedalsByLocale(@Query("locale") String locale);
 
 }

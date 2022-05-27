@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.ui.news;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,9 +15,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import net.foxandr.sport.universiade.ui.activities.EventsActivity;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
+import net.foxandr.sport.universiade.ui.activities.NewsDetailsActivity;
 import net.foxandr.sport.universiade.ui.news.adapters.NewsDTOListAdapter;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 
@@ -83,6 +86,10 @@ public class NewsFragment extends Fragment {
                         Toast.makeText(view.getContext(), "Был выбран пункт " +
                                 selectedNewsDTO.getNewsTEntities().get(0).getTitle(),
                                 Toast.LENGTH_SHORT).show();
+
+                        Intent eventsActivity = new Intent(getActivity(), NewsDetailsActivity.class);
+                        eventsActivity.putExtra("newsDTO", selectedNewsDTO);
+                        startActivity(eventsActivity);
                     }
                 };
                 newsDTOListView.setOnItemClickListener(itemListener);

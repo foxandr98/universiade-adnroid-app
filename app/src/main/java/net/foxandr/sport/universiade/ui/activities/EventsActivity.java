@@ -1,4 +1,4 @@
-package net.foxandr.sport.universiade;
+package net.foxandr.sport.universiade.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;

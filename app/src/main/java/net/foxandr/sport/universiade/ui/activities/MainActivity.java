@@ -1,4 +1,4 @@
-package net.foxandr.sport.universiade;
+package net.foxandr.sport.universiade.ui.activities;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.ui.home.HomeFragment;
 import net.foxandr.sport.universiade.ui.main.ViewPager2Adapter;
 import net.foxandr.sport.universiade.ui.medals.MedalsFragment;

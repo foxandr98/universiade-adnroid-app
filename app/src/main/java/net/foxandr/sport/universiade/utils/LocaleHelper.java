@@ -8,7 +8,7 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import androidx.appcompat.content.res.AppCompatResources;
-import net.foxandr.sport.universiade.MainActivity;
+import net.foxandr.sport.universiade.ui.activities.MainActivity;
 import net.foxandr.sport.universiade.R;
 
 import java.util.Locale;

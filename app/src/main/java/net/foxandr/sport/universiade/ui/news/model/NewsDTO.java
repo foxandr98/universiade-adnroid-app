@@ -14,10 +14,11 @@ import org.threeten.bp.format.DateTimeFormatter;
 import org.threeten.bp.zone.ZoneRules;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NewsDTO {
+public class NewsDTO implements Serializable {
 
     @JsonProperty("createdOn")
     private String createdOn;

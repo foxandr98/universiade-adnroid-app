@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         List<Fragment> fragmentList = Arrays.asList(
                 HomeFragment.newInstance(appLocale),
                 NewsFragment.newInstance(appLocale),
-                LostFoundFragment.newInstance(appLocale, appLocale)
+                LostFoundFragment.newInstance()
         );
         adapter.setData(fragmentList);
         viewPager2.setAdapter(adapter);

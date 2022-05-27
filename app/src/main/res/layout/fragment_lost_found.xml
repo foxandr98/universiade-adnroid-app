@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.lostfound.LostFoundFragment">
+        tools:context=".ui.lostfound.LostFoundFragment"
+        android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            android:text="Опишите предмет"
+            style="@style/great_bold_text_style"
+            />
 
-</FrameLayout>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Например: потерял коричневую сумку, два кармана сбоку"
+            style="@style/great_text_style"
+            android:inputType="textMultiLine"
+            android:maxLength="400"
+            android:minLines="6"
+            android:maxLines="6"
+            />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Опишите примерное место потери"
+            style="@style/great_bold_text_style" />
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Например: на 3-м ряду у входа, Екатеринбург-Арена"
+            style="@style/great_text_style"
+            android:inputType="textMultiLine"
+            android:maxLength="150"
+            android:minLines="6"
+            android:maxLines="6"
+            />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Город"
+            style="@style/great_bold_text_style" />
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Например: Екатеринбург"
+            style="@style/great_text_style"
+            android:maxLength="100" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Как к вам обращаться"
+            style="@style/great_bold_text_style" />
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Например: Александр"
+            style="@style/great_text_style"
+            android:maxLength="50"/>
+
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ваши контакты"
+            style="@style/great_bold_text_style" />
+
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Например: Телефон +7-912-333-33-33, Почта: diplom@mail.ru"
+            style="@style/great_text_style"
+            android:maxLength="100"
+            android:minLines="2"
+            android:maxLines="2"/>
+
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Отправить запрос"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"/>
+
+
+</LinearLayout>

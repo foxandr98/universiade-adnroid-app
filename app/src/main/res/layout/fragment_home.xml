@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp" />
 
     <Button
             android:text="@string/medals_table"

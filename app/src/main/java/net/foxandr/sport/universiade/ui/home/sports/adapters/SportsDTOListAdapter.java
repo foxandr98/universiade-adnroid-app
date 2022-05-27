@@ -19,14 +19,14 @@ public class SportsDTOListAdapter extends ArrayAdapter<SportsDTO> {
 
     private LayoutInflater inflater;
     private int layout;
-    private List<SportsDTO> SportsDTOList;
+    private List<SportsDTO> sportsDTOList;
 
 
     public SportsDTOListAdapter(Context context, int resource, List<SportsDTO> SportsDTOList) {
         super(context, resource, SportsDTOList);
         this.inflater = LayoutInflater.from(context);
         this.layout = resource;
-        this.SportsDTOList = SportsDTOList;
+        this.sportsDTOList = SportsDTOList;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -36,7 +36,7 @@ public class SportsDTOListAdapter extends ArrayAdapter<SportsDTO> {
         ImageView imageView = view.findViewById(R.id.sport_icon);
         TextView nameView = view.findViewById(R.id.sport_name);
 
-        SportsDTO sportsDTO = SportsDTOList.get(position);
+        SportsDTO sportsDTO = sportsDTOList.get(position);
 
         imageView.setImageResource(getContext().getResources().
                 getIdentifier("sport_" + sportsDTO.getSportCode().toLowerCase(),

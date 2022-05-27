@@ -59,7 +59,7 @@ public class NewsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ListView newsDTOList = view.findViewById(R.id.news_dto_list);
+        ListView newsDTOListView = view.findViewById(R.id.news_dto_list);
 
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<NewsDTO>> call = api.getNewsByLocale(locale);
@@ -74,7 +74,7 @@ public class NewsFragment extends Fragment {
                         R.layout.news_list_item,
                         resource);
 
-                newsDTOList.setAdapter(newsDTOListAdapter);
+                newsDTOListView.setAdapter(newsDTOListAdapter);
 
                 AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
                     @Override
@@ -85,11 +85,12 @@ public class NewsFragment extends Fragment {
                                 Toast.LENGTH_SHORT).show();
                     }
                 };
-                newsDTOList.setOnItemClickListener(itemListener);
+                newsDTOListView.setOnItemClickListener(itemListener);
             }
 
             @Override
             public void onFailure(Call<List<NewsDTO>> call, Throwable t) {
+                Log.d("ERROR: ","Sports query network error");
                 call.cancel();
             }
         });

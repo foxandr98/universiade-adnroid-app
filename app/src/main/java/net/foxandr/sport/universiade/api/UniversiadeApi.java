@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.api;
 
+import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.sports.SportsDTO;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
@@ -8,6 +9,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface UniversiadeApi {
@@ -18,8 +20,11 @@ public interface UniversiadeApi {
     @GET("games/1/medals?")
     Call<List<MedalsDTO>> getMedalsByLocale(@Query("locale") String locale);
 
-    @GET("games/1/sports?")
-    Call<List<SportsDTO>> getSportsByLocale(@Query("locale") String locale);
+    @GET("games/{gameId}/sports?")
+    Call<List<SportsDTO>> getSportsByLocaleAndGameId(@Path("gameId") Long gameId,
+                                                     @Query("locale") String locale);
 
+    @GET("games?")
+    Call<List<GamesDTO>> getGamesByLocale(@Query("locale") String locale);
 
 }

@@ -60,7 +60,7 @@ public class MedalsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ListView medalsDTOList = view.findViewById(R.id.medals_dto_list);
+        ListView medalsDTOListView = view.findViewById(R.id.medals_dto_list);
 
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<MedalsDTO>> call = api.getMedalsByLocale(locale);
@@ -75,7 +75,7 @@ public class MedalsFragment extends Fragment {
                         R.layout.medals_list_item,
                         resource);
 
-                medalsDTOList.setAdapter(medalsDTOListAdapter);
+                medalsDTOListView.setAdapter(medalsDTOListAdapter);
 
                 AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
                     @Override
@@ -85,12 +85,13 @@ public class MedalsFragment extends Fragment {
                                 Toast.LENGTH_SHORT).show();
                     }
                 };
-                medalsDTOList.setOnItemClickListener(itemListener);
+                medalsDTOListView.setOnItemClickListener(itemListener);
 
             }
 
             @Override
             public void onFailure(Call<List<MedalsDTO>> call, Throwable t) {
+                Log.d("ERROR: ","Sports query network error");
                 call.cancel();
             }
         });

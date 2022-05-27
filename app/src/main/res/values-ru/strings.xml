@@ -44,4 +44,16 @@
 
     <string name="you_chose">Вы выбрали </string>
 
+    <string name="lostfound_describe_item">Опишите предмет</string>
+    <string name="lostfound_hint_describe_item">Например: потерял коричневую сумку, два кармана сбоку</string>
+    <string name="lostfound_describe_place">Опишите примерное место потери</string>
+    <string name="lostfound_hint_describe_place">Например: на 3-м ряду у входа, Екатеринбург-Арена</string>
+    <string name="lostfound_city">Город</string>
+    <string name="lostfound_hint_city">Например: Екатеринбург</string>
+    <string name="lostfound_your_name">Как к вам обращаться</string>
+    <string name="lostfound_hint_your_name">Например: Александр</string>
+    <string name="lostfound_your_contacts">Ваши контакты</string>
+    <string name="lostfound_hint_your_contacts">Например: Телефон +7–912–333–33–33, Почта: diplom@mail.ru</string>
+    <string name="lostfound_send_request">Отправить запрос</string>
+
 </resources>

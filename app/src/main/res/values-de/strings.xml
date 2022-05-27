@@ -43,4 +43,17 @@
     <string name="schedule">Zeitlicher Ablauf</string>
 
     <string name="you_chose">Du hast es gewählt\u0020</string>
+
+    <string name="lostfound_describe_item">Beschreibe den Gegenstand</string>
+    <string name="lostfound_hint_describe_item">Beispiel: braune Tasche verloren, zwei Taschen an der Seite</string>
+    <string name="lostfound_describe_place">Beschreibe den ungefähren Ort des Verlusts</string>
+    <string name="lostfound_hint_describe_place">Zum Beispiel: in der 3. Reihe am Eingang, Yekaterinburg-Arena</string>
+    <string name="lostfound_city">Stadt</string>
+    <string name="lostfound_hint_city">Zum Beispiel: Jekaterinburg</string>
+    <string name="lostfound_your_name">Wie können wir dich anrufen</string>
+    <string name="lostfound_hint_your_name">Zum Beispiel: Alexander</string>
+    <string name="lostfound_your_contacts">Deine Kontakte</string>
+    <string name="lostfound_hint_your_contacts">Zum Beispiel: Telefon +7–912–333–33–33, Mail: diplom@mail.ru</string>
+    <string name="lostfound_send_request">Sende eine Anfrage</string>
+
 </resources>

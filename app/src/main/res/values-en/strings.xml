@@ -43,4 +43,16 @@
     <string name="schedule">Schedule</string>
 
     <string name="you_chose">You chose </string>
+
+    <string name="lostfound_describe_item">Describe the item</string>
+    <string name="lostfound_hint_describe_item">For example: lost a brown bag, two pockets on the side</string>
+    <string name="lostfound_describe_place">Describe the approximate location of the loss</string>
+    <string name="lostfound_hint_describe_place">For example: on the 3rd row at the entrance, Yekaterinburg-Arena</string>
+    <string name="lostfound_city">City</string>
+    <string name="lostfound_hint_city">For example: Yekaterinburg</string>
+    <string name="lostfound_your_name">How can we call you</string>
+    <string name="lostfound_hint_your_name">For example: Alexander</string>
+    <string name="lostfound_your_contacts">Your contacts</string>
+    <string name="lostfound_hint_your_contacts">For example: Phone +7–912–333–33–33, Mail: diplom@mail.ru</string>
+    <string name="lostfound_send_request">Submit a request</string>
 </resources>

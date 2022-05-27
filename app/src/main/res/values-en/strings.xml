@@ -34,4 +34,10 @@
     <string name="events_individual">Individual</string>
     <string name="events_team">Team</string>
 
+    <string name="discipline">Discipline</string>
+    <string name="category">Category</string>
+    <string name="stage">Stage</string>
+    <string name="time">Time</string>
+    <string name="ended">Ended</string>
+
 </resources>

@@ -34,4 +34,10 @@
     <string name="events_individual">Индвидуальный</string>
     <string name="events_team">Командный</string>
 
+    <string name="discipline">Дисциплина</string>
+    <string name="category">Категория</string>
+    <string name="stage">Стадия</string>
+    <string name="time">Время</string>
+    <string name="ended">Завершено</string>
+
 </resources>

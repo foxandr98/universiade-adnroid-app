@@ -44,7 +44,7 @@ public class SportsDTOListAdapter extends ArrayAdapter<SportsDTO> {
                         getContext().getPackageName()));
         nameView.setText(sportsDTO.getSportName());
         view.setBackgroundColor(position % 2 == 0
-                ? Color.parseColor("#F5F5DC")
+                ? Color.WHITE
                 : Color.parseColor("#DEDEDE"));
         return view;
     }

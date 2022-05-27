@@ -40,7 +40,9 @@ public class GamesDTOListAdapter extends ArrayAdapter<GamesDTO> {
         String fullName = gamesDTOList.get(position).getGameName();
 
         textView.setText(fullName);
-        textView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#DEDEDE"));
+        textView.setBackgroundColor(position % 2 == 0
+                ? Color.parseColor("#F5F5F5")
+                : Color.parseColor("#DEDEDE"));
 
         return textView;
     }

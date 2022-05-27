@@ -23,7 +23,8 @@
             android:id="@+id/games_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/great_text_style"/>
+            style="@style/great_text_style"
+            android:background="@color/beige"/>
 
     <View
             android:layout_width="match_parent"
@@ -33,11 +34,18 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/beige">
+
         <TextView
                 android:id="@+id/games_country"
                 android:layout_weight="3"
-                style="@style/great_text_style"/>
+                style="@style/great_text_style" />
+
+        <View
+                android:layout_width="2dp"
+                android:layout_height="35dp"
+                android:background="@android:color/darker_gray" />
 
         <ImageView
                 android:id="@+id/games_season_icon"

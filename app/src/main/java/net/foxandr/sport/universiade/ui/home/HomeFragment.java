@@ -72,10 +72,6 @@ public class HomeFragment extends Fragment {
 
     public void getGames(View view) {
         Spinner gamesDTOListSpinnerView = view.findViewById(R.id.games_spinner);
-        TextView gamesNameView = view.findViewById(R.id.games_name);
-        TextView gamesCountry = view.findViewById(R.id.games_country);
-        ImageView gamesDTOIconView = view.findViewById(R.id.games_season_icon);
-
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<GamesDTO>> call = api.getGamesByLocale(locale);
 
@@ -91,10 +87,7 @@ public class HomeFragment extends Fragment {
                         resource);
                 gamesDTOListSpinnerView.setAdapter(SportsDTOListAdapter);
 
-                gamesCountry.setText(resource.get(0).getCountryName());
-                gamesNameView.setText(resource.get(0).getGameName());
-                boolean isSummer = resource.get(0).getIsSummer();
-                gamesDTOIconView.setImageResource(isSummer ? R.drawable.games_summer : R.drawable.games_winter);
+                setGamesInfo(view, resource.get(0));
 
                 getSports(view, resource.get(0).getGameId());
 
@@ -105,6 +98,7 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(view.getContext(), "Был выбран пункт " +
                                         selectedSportsDTO.getGameName(),
                                 Toast.LENGTH_SHORT).show();
+                        setGamesInfo(view, selectedSportsDTO);
                         getSports(view, resource.get(position).getGameId());
                     }
 
@@ -160,5 +154,18 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+
+    private void setGamesInfo(View view, GamesDTO gameInfo){
+        TextView gamesNameView = view.findViewById(R.id.games_name);
+        TextView gamesCountry = view.findViewById(R.id.games_country);
+        ImageView gamesDTOIconView = view.findViewById(R.id.games_season_icon);
+
+        gamesCountry.setText(gameInfo.getCountryName());
+        gamesNameView.setText(gameInfo.getGameName());
+        boolean isSummer = gameInfo.getIsSummer();
+        gamesDTOIconView.setImageResource(isSummer ? R.drawable.games_summer : R.drawable.games_winter);
+    }
+
 
 }

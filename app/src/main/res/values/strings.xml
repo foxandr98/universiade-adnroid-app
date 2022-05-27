@@ -23,5 +23,6 @@
 
     <string name="title">Title</string>
     <string name="news_created_on">Publication time</string>
+    <string name="medals_table">Medals Table</string>
 
 </resources>

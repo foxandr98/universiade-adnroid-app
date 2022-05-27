@@ -17,9 +17,7 @@ import android.widget.Toast;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
-import net.foxandr.sport.universiade.ui.medals.adapters.MedalsDTOAdapter;
-import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
-import net.foxandr.sport.universiade.ui.news.adapters.NewsDTOAdapter;
+import net.foxandr.sport.universiade.ui.news.adapters.NewsDTOListAdapter;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 
 import java.util.List;
@@ -30,7 +28,7 @@ import retrofit2.Response;
 
 public class NewsFragment extends Fragment {
     
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "locale";
 
     private String locale;
 
@@ -71,12 +69,12 @@ public class NewsFragment extends Fragment {
                 Log.d("TAG", response.code() + "");
 
                 List<NewsDTO> resource = response.body();
-                NewsDTOAdapter newsDTOAdapter = new NewsDTOAdapter(
+                NewsDTOListAdapter newsDTOListAdapter = new NewsDTOListAdapter(
                         view.getContext(),
                         R.layout.news_list_item,
                         resource);
 
-                newsDTOList.setAdapter(newsDTOAdapter);
+                newsDTOList.setAdapter(newsDTOListAdapter);
 
                 AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
                     @Override

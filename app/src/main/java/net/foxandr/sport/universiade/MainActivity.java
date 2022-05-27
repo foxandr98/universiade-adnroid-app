@@ -17,8 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import net.foxandr.sport.universiade.ui.main.ViewPager2Adapter;
 import net.foxandr.sport.universiade.ui.home.HomeFragment;
+import net.foxandr.sport.universiade.ui.main.ViewPager2Adapter;
+import net.foxandr.sport.universiade.ui.medals.MedalsFragment;
 import net.foxandr.sport.universiade.ui.lostfound.LostFoundFragment;
 import net.foxandr.sport.universiade.ui.news.NewsFragment;
 import net.foxandr.sport.universiade.utils.LocaleHelper;
@@ -27,8 +28,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements TabLayoutMediator.TabConfigurationStrategy {
-
-    //    private ActivityMainBinding binding;
     String appLocale;
 
     ViewPager2 viewPager2;
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         super.onCreate(savedInstanceState);
         if (appLocale == null)
             appLocale = LocaleHelper.initLocale(this);
-//        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
         viewPager2 = findViewById(R.id.view_pager2);
         tabLayout = findViewById(R.id.tabs);
@@ -59,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         setViewPagerAdapter();
         new TabLayoutMediator(tabLayout, viewPager2, this).attach();
         AndroidThreeTen.init(this);
-//        setContentView(binding.getRoot());
     }
 
     public void setViewPagerAdapter() {

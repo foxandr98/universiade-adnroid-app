@@ -23,4 +23,6 @@
     <string name="title">Заголовок</string>
     <string name="news_created_on">Время\nпубликации</string>
 
+    <string name="medals_table">Медальный зачет</string>
+
 </resources>

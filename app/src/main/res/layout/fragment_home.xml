@@ -6,63 +6,23 @@
         tools:context=".ui.home.HomeFragment"
         android:orientation="vertical">
 
-    <LinearLayout
+    <Spinner
+            android:id="@+id/games_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/beige">
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
+            android:layout_marginTop="5dp"/>
 
-        <ImageView
-                android:src="@drawable/medal_rank"
-                android:text="rank"
-                android:layout_weight="1"
-                style="@style/great_text_style" />
-
-        <ImageView
-                android:src="@drawable/medal_globus"
-                android:text="globe"
-                android:layout_weight="2"
-                style="@style/great_text_style" />
-
-        <TextView
-                android:text="@string/medals_country_name"
-                android:layout_weight="3"
-                style="@style/great_text_style"
-                android:textStyle="bold" />
-
-        <ImageView
-                android:src="@drawable/medal_gold"
-                android:text="rank"
-                android:layout_weight="1"
-                style="@style/great_text_style" />
-
-        <ImageView
-                android:src="@drawable/medal_silver"
-                android:text="rank"
-                android:layout_weight="1"
-                style="@style/great_text_style" />
-
-        <ImageView
-                android:src="@drawable/medal_bronze"
-                android:text="rank"
-                android:layout_weight="1"
-                style="@style/great_text_style" />
-
-        <ImageView
-                android:src="@drawable/medal_total"
-                android:text="rank"
-                android:layout_weight="1"
-                style="@style/great_text_style" />
-    </LinearLayout>
-
-    <View
+    <Button
+            android:text="@string/medals_table"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
+            android:layout_height="wrap_content" />
+
 
     <ListView
-            android:id="@+id/medals_dto_list"
+            android:id="@+id/sports_dto_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
 </LinearLayout>

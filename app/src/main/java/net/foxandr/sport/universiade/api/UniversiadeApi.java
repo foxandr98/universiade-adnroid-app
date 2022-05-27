@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.api;
 
+import net.foxandr.sport.universiade.ui.home.sports.SportsDTO;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 
@@ -16,5 +17,9 @@ public interface UniversiadeApi {
 
     @GET("games/1/medals?")
     Call<List<MedalsDTO>> getMedalsByLocale(@Query("locale") String locale);
+
+    @GET("games/1/sports?")
+    Call<List<SportsDTO>> getSportsByLocale(@Query("locale") String locale);
+
 
 }

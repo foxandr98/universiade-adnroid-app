@@ -23,4 +23,6 @@
     <string name="title">Titel</string>
     <string name="news_created_on">Veröffent\nlichungszeit</string>
 
+    <string name="medals_table">Medaillenspiegel</string>
+
 </resources>

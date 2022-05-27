@@ -22,14 +22,14 @@ import org.threeten.bp.format.DateTimeFormatter;
 
 import java.util.List;
 
-public class NewsDTOAdapter extends ArrayAdapter<NewsDTO> {
+public class NewsDTOListAdapter extends ArrayAdapter<NewsDTO> {
 
     private LayoutInflater inflater;
     private int layout;
     private List<NewsDTO> newsDTOList;
 
 
-    public NewsDTOAdapter(Context context, int resource, List<NewsDTO> newsDTOList) {
+    public NewsDTOListAdapter(Context context, int resource, List<NewsDTO> newsDTOList) {
         super(context, resource, newsDTOList);
         this.inflater = LayoutInflater.from(context);
         this.layout = resource;
@@ -40,16 +40,16 @@ public class NewsDTOAdapter extends ArrayAdapter<NewsDTO> {
 
         View view=inflater.inflate(this.layout, parent, false);
 
-        TextView title = view.findViewById(R.id.news_title_name);
-        TextView createdOn = view.findViewById(R.id.news_created_on);
+        TextView titleView = view.findViewById(R.id.news_title_name);
+        TextView createdOnView = view.findViewById(R.id.news_created_on);
 //        TextView countryViewName = view.findViewById(R.id.medals_country_name);
 //        ImageView flagView = view.findViewById(R.id.medals_flag);
         NewsDTO newsDTO = newsDTOList.get(position);
 
-        title.setText(String.valueOf(newsDTO.getNewsTEntities().get(0).getTitle()));
+        titleView.setText(String.valueOf(newsDTO.getNewsTEntities().get(0).getTitle()));
         try{
             OffsetDateTime dateTime = newsDTO.getCreatedOn();
-            createdOn.setText(dateTime.format(
+            createdOnView.setText(dateTime.format(
                     DateTimeFormatter.ofPattern("HH:mm uuuu-MM-dd")
             ));
         }

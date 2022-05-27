@@ -21,8 +21,8 @@
             style="@style/great_text_style"
             android:inputType="textMultiLine"
             android:maxLength="400"
-            android:minLines="5"
-            android:maxLines="5"
+            android:minLines="3"
+            android:maxLines="3"
             />
 
     <TextView
@@ -39,8 +39,8 @@
             style="@style/great_text_style"
             android:inputType="textMultiLine"
             android:maxLength="150"
-            android:minLines="5"
-            android:maxLines="5"
+            android:minLines="3"
+            android:maxLines="3"
             />
 
     <TextView
@@ -88,10 +88,36 @@
             android:minLines="2"
             android:maxLines="2" />
 
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose the image"
+            style="@style/great_bold_text_style" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+        <Button
+                android:id="@+id/lostfound_get_image_button"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:text="Choose the image" />
+        <ImageView
+                android:id="@+id/lostfound_image"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+
+    </LinearLayout>
+
+
     <Button
-            android:id="@+id/lostfound_button"
+            android:id="@+id/lostfound_send_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/lostfound_send_request" />
+            android:layout_weight="7"
+            android:text="@string/lostfound_send_request"
+            android:layout_marginTop="5dp"/>
 </LinearLayout>

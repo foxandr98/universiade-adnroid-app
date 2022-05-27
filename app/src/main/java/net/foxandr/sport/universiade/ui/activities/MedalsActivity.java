@@ -1,15 +1,12 @@
-package net.foxandr.sport.universiade.ui.medals;
+package net.foxandr.sport.universiade.ui.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,42 +23,23 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MedalsFragment extends Fragment {
-
-    private static final String ARG_PARAM1 = "locale";
+public class MedalsActivity extends AppCompatActivity {
 
     private String locale;
 
-    public MedalsFragment() {}
-
-    public static MedalsFragment newInstance(String locale) {
-        MedalsFragment fragment = new MedalsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, locale);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            locale = getArguments().getString(ARG_PARAM1);
-        }
+        setContentView(R.layout.activity_medals);
+        getSupportActionBar().setTitle(getResources().getString(R.string.medals_table));
+        Bundle arguments = getIntent().getExtras();
+        locale = arguments.getString("locale");
+        setMedalsList(this);
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_medals, container, false);
+    private void setMedalsList(Context context) {
 
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        ListView medalsDTOListView = view.findViewById(R.id.medals_dto_list);
-
+        ListView medalsDTOListView = this.findViewById(R.id.medals_dto_list);
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<MedalsDTO>> call = api.getMedalsByLocale(locale);
         call.enqueue(new Callback<List<MedalsDTO>>() {
@@ -71,7 +49,7 @@ public class MedalsFragment extends Fragment {
 
                 List<MedalsDTO> resource = response.body();
                 MedalsDTOListAdapter medalsDTOListAdapter = new MedalsDTOListAdapter(
-                        view.getContext(),
+                        context,
                         R.layout.medals_list_item,
                         resource);
 
@@ -81,7 +59,7 @@ public class MedalsFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                         MedalsDTO selectedMedalsDTO = (MedalsDTO)parent.getItemAtPosition(position);
-                        Toast.makeText(view.getContext(), "Был выбран пункт " + selectedMedalsDTO.getCountryName(),
+                        Toast.makeText(context, getResources().getString(R.string.you_chose) + selectedMedalsDTO.getCountryName(),
                                 Toast.LENGTH_SHORT).show();
                     }
                 };
@@ -95,5 +73,6 @@ public class MedalsFragment extends Fragment {
                 call.cancel();
             }
         });
+
     }
 }

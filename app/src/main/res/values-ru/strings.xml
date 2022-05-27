@@ -40,4 +40,8 @@
     <string name="time">Время</string>
     <string name="ended">Завершено</string>
 
+    <string name="schedule">Расписание</string>
+
+    <string name="you_chose">Вы выбрали </string>
+
 </resources>

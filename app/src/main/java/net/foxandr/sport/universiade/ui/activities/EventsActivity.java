@@ -34,7 +34,7 @@ public class EventsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        getSupportActionBar().setTitle(getResources().getString(R.string.schedule));
         Bundle arguments = getIntent().getExtras();
         locale = arguments.getString("locale");
         sportDTO = (SportsDTO)arguments.getSerializable("sportsDTO");
@@ -65,7 +65,7 @@ public class EventsActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                         EventsDTO selectedEventsDTO = (EventsDTO) parent.getItemAtPosition(position);
                         Toast.makeText(context,
-                                "Был выбран пункт " + selectedEventsDTO.getId(),
+                                getResources().getString(R.string.you_chose) + selectedEventsDTO.getId(),
                                 Toast.LENGTH_SHORT).show();
                     }
                 };

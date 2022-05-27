@@ -40,4 +40,7 @@
     <string name="time">Zeit</string>
     <string name="ended">Beendet</string>
 
+    <string name="schedule">Zeitlicher Ablauf</string>
+
+    <string name="you_chose">Du hast es gewählt\u0020</string>
 </resources>

@@ -13,7 +13,5 @@ public class NewsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_details);
         getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
-
-
     }
 }

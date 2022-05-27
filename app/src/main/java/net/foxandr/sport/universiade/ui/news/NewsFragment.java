@@ -83,7 +83,7 @@ public class NewsFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                         NewsDTO selectedNewsDTO = (NewsDTO)parent.getItemAtPosition(position);
-                        Toast.makeText(view.getContext(), "Был выбран пункт " +
+                        Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
                                 selectedNewsDTO.getNewsTEntities().get(0).getTitle(),
                                 Toast.LENGTH_SHORT).show();
 

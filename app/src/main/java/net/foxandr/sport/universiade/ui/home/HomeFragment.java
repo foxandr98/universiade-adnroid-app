@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.ui.home;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -21,6 +23,7 @@ import net.foxandr.sport.universiade.ui.activities.EventsActivity;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
+import net.foxandr.sport.universiade.ui.activities.MedalsActivity;
 import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.games.adapters.GamesDTOListAdapter;
 import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
@@ -96,7 +99,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                         GamesDTO selectedSportsDTO = (GamesDTO) parent.getItemAtPosition(position);
-                        Toast.makeText(view.getContext(), "Был выбран пункт " +
+                        Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
                                         selectedSportsDTO.getGameName(),
                                 Toast.LENGTH_SHORT).show();
                         setGamesInfo(view, selectedSportsDTO);
@@ -107,6 +110,15 @@ public class HomeFragment extends Fragment {
                     public void onNothingSelected(AdapterView<?> parent) {
                     }
                 });
+
+                Button medalsButtonView = view.findViewById(R.id.medals_get_button);
+                medalsButtonView.setOnClickListener(
+                        (x) -> {
+                            Intent intent = new Intent(getActivity(), MedalsActivity.class);
+                            intent.putExtra("locale", locale);
+                            startActivity(intent);
+                        }
+                );
             }
 
             @Override
@@ -140,7 +152,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                         SportsDTO selectedSportsDTO = (SportsDTO) parent.getItemAtPosition(position);
-                        Toast.makeText(view.getContext(), "Был выбран пункт " +
+                        Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
                                         selectedSportsDTO.getSportName(),
                                 Toast.LENGTH_SHORT).show();
                         Intent eventsActivity = new Intent(getActivity(), EventsActivity.class);

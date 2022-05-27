@@ -15,6 +15,7 @@
             android:layout_marginTop="5dp" />
 
     <Button
+            android:id="@+id/medals_get_button"
             android:text="@string/medals_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

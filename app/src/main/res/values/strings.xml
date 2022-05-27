@@ -39,4 +39,9 @@
     <string name="time">Time</string>
     <string name="ended">Ended</string>
 
+    <string name="schedule">Schedule</string>
+
+    <string name="you_chose">You chose </string>
+
+
 </resources>

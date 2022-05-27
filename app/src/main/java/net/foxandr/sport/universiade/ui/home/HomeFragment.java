@@ -21,9 +21,8 @@ import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
 import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.games.adapters.GamesDTOListAdapter;
-import net.foxandr.sport.universiade.ui.home.sports.SportsDTO;
-import net.foxandr.sport.universiade.ui.home.sports.adapters.SportsDTOListAdapter;
-import net.foxandr.sport.universiade.ui.lostfound.LostFoundFragment;
+import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
+import net.foxandr.sport.universiade.ui.home.games.mainsports.adapters.SportsDTOListAdapter;
 
 import java.util.List;
 

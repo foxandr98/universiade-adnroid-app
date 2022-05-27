@@ -1,7 +1,7 @@
 package net.foxandr.sport.universiade.api;
 
 import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
-import net.foxandr.sport.universiade.ui.home.sports.SportsDTO;
+import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 

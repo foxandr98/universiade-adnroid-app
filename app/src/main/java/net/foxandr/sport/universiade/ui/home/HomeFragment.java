@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -70,6 +72,10 @@ public class HomeFragment extends Fragment {
 
     public void getGames(View view) {
         Spinner gamesDTOListSpinnerView = view.findViewById(R.id.games_spinner);
+        TextView gamesNameView = view.findViewById(R.id.games_name);
+        TextView gamesCountry = view.findViewById(R.id.games_country);
+        ImageView gamesDTOIconView = view.findViewById(R.id.games_season_icon);
+
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<GamesDTO>> call = api.getGamesByLocale(locale);
 
@@ -83,8 +89,12 @@ public class HomeFragment extends Fragment {
                         view.getContext(),
                         androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
                         resource);
-
                 gamesDTOListSpinnerView.setAdapter(SportsDTOListAdapter);
+
+                gamesCountry.setText(resource.get(0).getCountryName());
+                gamesNameView.setText(resource.get(0).getGameName());
+                boolean isSummer = resource.get(0).getIsSummer();
+                gamesDTOIconView.setImageResource(isSummer ? R.drawable.games_summer : R.drawable.games_winter);
 
                 getSports(view, resource.get(0).getGameId());
 

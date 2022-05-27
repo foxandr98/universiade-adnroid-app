@@ -18,31 +18,30 @@ public class GamesDTOListAdapter extends ArrayAdapter<GamesDTO> {
 
     private List<GamesDTO> gamesDTOList;
 
-
     public GamesDTOListAdapter(Context context, int resource, List<GamesDTO> gamesDTOList) {
         super(context, resource, gamesDTOList);
         this.gamesDTOList = gamesDTOList;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        TextView label = (TextView) super.getView(position, convertView, parent);
-        label.setTextColor(Color.BLACK);
-        String fullNameWithCountry = gamesDTOList.get(position).getGameName() +
-                ". " + gamesDTOList.get(position).getCountryName() + ".";
-        label.setText(fullNameWithCountry);
-        return label;
+        return getCustomView(position, convertView, parent);
     }
 
     @Override
-    public View getDropDownView(int position, View convertView,
-                                ViewGroup parent) {
-        TextView label = (TextView) super.getDropDownView(position, convertView, parent);
-        label.setTextColor(Color.BLACK);
-        String fullNameWithCountry = gamesDTOList.get(position).getGameName() +
-                ". " + gamesDTOList.get(position).getCountryName() + ".";
-        label.setText(fullNameWithCountry);
-        return label;
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        return getCustomView(position, convertView, parent);
     }
-    
+
+    public View getCustomView(int position, View convertView,
+                              ViewGroup parent) {
+        TextView textView = (TextView) super.getDropDownView(position, convertView, parent);
+        textView.setTextColor(Color.BLACK);
+
+        String fullName = gamesDTOList.get(position).getGameName();
+
+        textView.setText(fullName);
+        textView.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#DEDEDE"));
+
+        return textView;
+    }
 }

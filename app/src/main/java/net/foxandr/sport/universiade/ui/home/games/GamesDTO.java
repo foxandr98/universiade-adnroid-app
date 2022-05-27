@@ -41,11 +41,11 @@ public class GamesDTO {
         this.gameYear = gameYear;
     }
 
-    public boolean isSummer() {
+    public boolean getIsSummer() {
         return isSummer;
     }
 
-    public void setSummer(boolean summer) {
+    public void setIsSummer(boolean summer) {
         isSummer = summer;
     }
 

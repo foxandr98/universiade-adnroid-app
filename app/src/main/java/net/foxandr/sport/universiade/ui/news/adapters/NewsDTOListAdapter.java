@@ -42,8 +42,6 @@ public class NewsDTOListAdapter extends ArrayAdapter<NewsDTO> {
 
         TextView titleView = view.findViewById(R.id.news_title_name);
         TextView createdOnView = view.findViewById(R.id.news_created_on);
-//        TextView countryViewName = view.findViewById(R.id.medals_country_name);
-//        ImageView flagView = view.findViewById(R.id.medals_flag);
         NewsDTO newsDTO = newsDTOList.get(position);
 
         titleView.setText(String.valueOf(newsDTO.getNewsTEntities().get(0).getTitle()));
@@ -56,13 +54,6 @@ public class NewsDTOListAdapter extends ArrayAdapter<NewsDTO> {
         catch (Exception e){
 
         }
-
-        
-//        flagView.setImageResource(getContext().getResources().
-//                getIdentifier("flag_" + medalsDTO.getIocName().toLowerCase(),
-//                        "drawable",
-//                        getContext().getPackageName()));
-
         view.setBackgroundColor(position % 2 == 0 ? Color.WHITE : Color.parseColor("#DEDEDE"));
         return view;
     }

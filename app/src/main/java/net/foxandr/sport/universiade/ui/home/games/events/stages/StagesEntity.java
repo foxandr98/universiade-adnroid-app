@@ -15,7 +15,7 @@ public class StagesEntity{
     private List<StagesTEntity> stagesTEntities;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    static class StagesTEntity{
+    public static class StagesTEntity{
 
         @JsonProperty("name")
         private String stageName;

@@ -26,4 +26,12 @@
     <string name="medals_table">Medals Table</string>
 
     <string name="home_country_title">Host country</string>
+
+    <string name="events_men">Men</string>
+    <string name="events_women">Women</string>
+    <string name="events_mixed">Mixed</string>
+
+    <string name="events_individual">Individual</string>
+    <string name="events_team">Team</string>
+
 </resources>

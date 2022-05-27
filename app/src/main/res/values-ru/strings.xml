@@ -26,4 +26,12 @@
     <string name="medals_table">Медальный зачет</string>
 
     <string name="home_country_title">Страна проведения</string>
+
+    <string name="events_men">Мужчины</string>
+    <string name="events_women">Женщины</string>
+    <string name="events_mixed">Смешанный</string>
+
+    <string name="events_individual">Индвидуальный</string>
+    <string name="events_team">Командный</string>
+
 </resources>

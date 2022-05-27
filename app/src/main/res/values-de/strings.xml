@@ -27,4 +27,11 @@
 
     <string name="home_country_title">Gastland</string>
 
+    <string name="events_men">Männer</string>
+    <string name="events_women">Frauen</string>
+    <string name="events_mixed">Gemischt</string>
+
+    <string name="events_individual">Individuell</string>
+    <string name="events_team">Mannschaft</string>
+
 </resources>

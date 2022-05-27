@@ -53,15 +53,8 @@ public class NewsDTO {
         }
     }
 
-    public OffsetDateTime getCreatedOn() {
-        ZoneId zone = ZoneId.systemDefault() ;
-        ZoneRules rules = zone.getRules() ;
-        Instant instant = Instant.now() ;
-        ZoneOffset offset = rules.getOffset( instant ) ;
-        OffsetDateTime instantCreatedOn = Instant.parse(createdOn)
-                .atOffset(offset);
-
-        return instantCreatedOn;
+    public String getCreatedOn() {
+        return createdOn;
     }
 
     public void setCreatedOn(String createdOn) {

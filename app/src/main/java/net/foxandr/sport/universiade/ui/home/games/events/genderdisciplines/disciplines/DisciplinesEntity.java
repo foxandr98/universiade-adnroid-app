@@ -27,15 +27,15 @@ public class DisciplinesEntity {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class DisciplinesTEntity{
 
-        @JsonProperty("categoryName")
-        private String categoryName;
+        @JsonProperty("name")
+        private String name;
 
-        public String getCategoryName() {
-            return categoryName;
+        public String getName() {
+            return name;
         }
 
-        public void setCategoryName(String categoryName) {
-            this.categoryName = categoryName;
+        public void setName(String name) {
+            this.name = name;
         }
     }
 
@@ -71,11 +71,11 @@ public class DisciplinesEntity {
         this.scoreType = scoreType;
     }
 
-    public Boolean getIndividual() {
+    public Boolean getIsIndividual() {
         return isIndividual;
     }
 
-    public void setIndividual(Boolean individual) {
-        isIndividual = individual;
+    public void setIsIndividual(Boolean isIndividual) {
+        this.isIndividual = isIndividual;
     }
 }

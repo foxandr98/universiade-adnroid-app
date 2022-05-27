@@ -27,8 +27,8 @@ public class EventsDTO {
     @JsonProperty("venuesEntity")
     private VenuesEntity venuesEntity;
 
-    @JsonProperty("venuesEntity")
-    private Instant eventTime;
+    @JsonProperty("utcEventTime")
+    private String eventTime;
 
     @JsonProperty("finished")
     private Boolean isFinished;
@@ -65,11 +65,11 @@ public class EventsDTO {
         this.venuesEntity = venuesEntity;
     }
 
-    public Instant getEventTime() {
+    public String getEventTime() {
         return eventTime;
     }
 
-    public void setEventTime(Instant eventTime) {
+    public void setEventTime(String eventTime) {
         this.eventTime = eventTime;
     }
 

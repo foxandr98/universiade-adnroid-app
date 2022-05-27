@@ -1,4 +1,4 @@
-package net.foxandr.sport.universiade.ui.main;
+package net.foxandr.sport.universiade.utils;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

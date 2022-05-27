@@ -46,7 +46,7 @@
 
     <string name="lostfound_describe_item">Describe the item</string>
     <string name="lostfound_hint_describe_item">For example: lost a brown bag, two pockets on the side</string>
-    <string name="lostfound_describe_place">Describe the approximate location of the loss</string>
+    <string name="lostfound_describe_place">Describe the approximate place of the loss</string>
     <string name="lostfound_hint_describe_place">For example: on the 3rd row at the entrance, Yekaterinburg-Arena</string>
     <string name="lostfound_city">City</string>
     <string name="lostfound_hint_city">For example: Yekaterinburg</string>

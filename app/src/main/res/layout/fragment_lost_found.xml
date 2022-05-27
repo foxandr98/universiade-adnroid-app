@@ -14,14 +14,15 @@
             />
 
     <EditText
+            android:id="@+id/lostfound_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lostfound_hint_describe_item"
             style="@style/great_text_style"
             android:inputType="textMultiLine"
             android:maxLength="400"
-            android:minLines="6"
-            android:maxLines="6"
+            android:minLines="5"
+            android:maxLines="5"
             />
 
     <TextView
@@ -31,14 +32,15 @@
             style="@style/great_bold_text_style" />
 
     <EditText
+            android:id="@+id/lostfound_place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lostfound_hint_describe_place"
             style="@style/great_text_style"
             android:inputType="textMultiLine"
             android:maxLength="150"
-            android:minLines="6"
-            android:maxLines="6"
+            android:minLines="5"
+            android:maxLines="5"
             />
 
     <TextView
@@ -48,6 +50,7 @@
             style="@style/great_bold_text_style" />
 
     <EditText
+            android:id="@+id/lostfound_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lostfound_hint_city"
@@ -61,6 +64,7 @@
             style="@style/great_bold_text_style" />
 
     <EditText
+            android:id="@+id/lostfound_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lostfound_hint_your_name"
@@ -75,6 +79,7 @@
             style="@style/great_bold_text_style" />
 
     <EditText
+            android:id="@+id/lostfound_contacts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lostfound_hint_your_contacts"
@@ -84,9 +89,9 @@
             android:maxLines="2" />
 
     <Button
+            android:id="@+id/lostfound_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="@string/lostfound_send_request"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/lostfound_send_request" />
 </LinearLayout>

@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.ui.home.HomeFragment;
-import net.foxandr.sport.universiade.ui.main.ViewPager2Adapter;
+import net.foxandr.sport.universiade.utils.ViewPager2Adapter;
 import net.foxandr.sport.universiade.ui.lostfound.LostFoundFragment;
 import net.foxandr.sport.universiade.ui.news.NewsFragment;
 import net.foxandr.sport.universiade.utils.LocaleHelper;

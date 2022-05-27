@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import net.foxandr.sport.universiade.EventsActivity;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
@@ -120,7 +122,7 @@ public class HomeFragment extends Fragment {
     public void getSports(View view, Long gameId) {
         ListView sportsDTOListView = view.findViewById(R.id.sports_dto_list);
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
-        Call<List<SportsDTO>> call = api.getSportsByLocaleAndGameId(gameId, locale);
+        Call<List<SportsDTO>> call = api.getSportsByGameIdAndLocale(gameId, locale);
         call.enqueue(new Callback<List<SportsDTO>>() {
             @Override
             public void onResponse(Call<List<SportsDTO>> call, Response<List<SportsDTO>> response) {
@@ -141,6 +143,11 @@ public class HomeFragment extends Fragment {
                         Toast.makeText(view.getContext(), "Был выбран пункт " +
                                         selectedSportsDTO.getSportName(),
                                 Toast.LENGTH_SHORT).show();
+                        Intent eventsActivity = new Intent(getActivity(), EventsActivity.class);
+                        eventsActivity.putExtra("sportsDTO", selectedSportsDTO);
+                        eventsActivity.putExtra("gameId", gameId);
+                        eventsActivity.putExtra("locale", locale);
+                        startActivity(eventsActivity);
                     }
                 };
                 sportsDTOListView.setOnItemClickListener(itemListener);

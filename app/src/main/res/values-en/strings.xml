@@ -56,5 +56,9 @@
     <string name="lostfound_hint_your_contacts">For example: Phone +7–912–333–33–33, Mail: diplom@mail.ru</string>
     <string name="lostfound_send_request">Submit a request</string>
 
-    <string name="lostfound_success">Request submitted:&#160;</string>
+    <string name="lostfound_success">Request submitted:\u0020</string>
+
+    <string name="lostfound_bad">Not all fields are filled!</string>
+    <string name="lostfound_bad_fill_data">Enter data!</string>
+
 </resources>

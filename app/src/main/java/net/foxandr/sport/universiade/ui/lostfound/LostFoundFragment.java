@@ -21,7 +21,9 @@ import androidx.fragment.app.Fragment;
 
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
@@ -39,6 +44,7 @@ import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
 import net.foxandr.sport.universiade.ui.home.games.mainsports.adapters.SportsDTOListAdapter;
 import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTO;
 import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
+import net.foxandr.sport.universiade.utils.CustomToast;
 import net.foxandr.sport.universiade.utils.TimeParser;
 
 import org.threeten.bp.format.DateTimeFormatter;
@@ -62,6 +68,18 @@ public class LostFoundFragment extends Fragment {
 
     Uri imageUri;
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
+
+    EditText describeItemView;
+    EditText placeItemView;
+    EditText cityItemView;
+    EditText nameView;
+    EditText contactsView;
+    Button lostfoundSendButton;
+
+    boolean isFilled;
+    MultipartBody.Part imageFile;
+
+    Map<String, String> lostFoundDTO;
 
     public LostFoundFragment() {
     }
@@ -90,12 +108,12 @@ public class LostFoundFragment extends Fragment {
         Button getImageFromPhone = view.findViewById(R.id.lostfound_get_image_button);
         ImageView imageView = view.findViewById(R.id.lostfound_image);
 
-        EditText describeItemView = view.findViewById(R.id.lostfound_item);
-        EditText placeItemView = view.findViewById(R.id.lostfound_place);
-        EditText cityItemView = view.findViewById(R.id.lostfound_city);
-        EditText nameView = view.findViewById(R.id.lostfound_name);
-        EditText contactsView = view.findViewById(R.id.lostfound_contacts);
-        Button lostfoundSendButton = view.findViewById(R.id.lostfound_send_button);
+        describeItemView = view.findViewById(R.id.lostfound_item);
+        placeItemView = view.findViewById(R.id.lostfound_place);
+        cityItemView = view.findViewById(R.id.lostfound_city);
+        nameView = view.findViewById(R.id.lostfound_name);
+        contactsView = view.findViewById(R.id.lostfound_contacts);
+        lostfoundSendButton = view.findViewById(R.id.lostfound_send_button);
 
         ActivityResultLauncher<String> mGetContent = registerForActivityResult(
                 new ActivityResultContracts.GetContent(),
@@ -119,9 +137,18 @@ public class LostFoundFragment extends Fragment {
 
         lostfoundSendButton.setOnClickListener(
                 x -> {
-                    MultipartBody.Part imageFile = prepareFileTOSend(x.getContext(), imageUri);
+                    if (!(isAllFieldFilled((ViewGroup) getView()) && imageUri != null)) {
+                        Toast.makeText(
+                                view.getContext(),
+                                getResources().getString(R.string.lostfound_bad),
+                                Toast.LENGTH_SHORT).show();
+                        isFilled = true;
+                        return;
+                    }
 
-                    Map<String, String> lostFoundDTO = new HashMap<>();
+                    imageFile = prepareFileTOSend(x.getContext(), imageUri);
+
+                    lostFoundDTO = new HashMap<>();
                     lostFoundDTO.put("itemDescription", describeItemView.getText().toString());
                     lostFoundDTO.put("lostItemArea", placeItemView.getText().toString());
                     lostFoundDTO.put("cityName", cityItemView.getText().toString());
@@ -142,7 +169,16 @@ public class LostFoundFragment extends Fragment {
                                     DateTimeFormatter.ofPattern("HH:mm uuuu-MM-dd")
                             );
 
-                            Toast.makeText(view.getContext(),R.string.lostfound_success+timeSent, Toast.LENGTH_SHORT).show();
+
+                            Toast toast = Toast.makeText(
+                                    view.getContext(),
+                                    getResources().getString(R.string.lostfound_success) + timeSent,
+                                    Toast.LENGTH_SHORT
+                            );
+                            CustomToast.showCustomToast(toast, Gravity.CENTER, 30);
+
+                            clearForms((ViewGroup)getView());
+                            clearFields();
                         }
 
                         @Override
@@ -155,11 +191,12 @@ public class LostFoundFragment extends Fragment {
         );
     }
 
-    public static RequestBody toRequestBody (String value) {
+
+    public static RequestBody toRequestBody(String value) {
         return RequestBody.create(value, MediaType.parse("text/plain"));
     }
 
-    public static MultipartBody.Part prepareFileTOSend(Context context, Uri imageUri){
+    public static MultipartBody.Part prepareFileTOSend(Context context, Uri imageUri) {
         String wholeID = DocumentsContract.getDocumentId(imageUri);
         String id = wholeID.split(":")[1];
         String[] column = {MediaStore.Images.Media.DATA};
@@ -182,6 +219,46 @@ public class LostFoundFragment extends Fragment {
                 MultipartBody.Part.createFormData("imageFile", image.getName(), requestFile);
 
         return imageFile;
+    }
+
+    private void clearForms(ViewGroup group) {
+        for (int i = 0, count = group.getChildCount(); i < count; ++i) {
+            View view = group.getChildAt(i);
+            if (view instanceof EditText) {
+                ((EditText) view).setText("");
+            }
+            if (view instanceof ImageView) {
+                ((ImageView) view).setImageResource(0);
+            }
+            if (view instanceof ViewGroup && (((ViewGroup) view).getChildCount() > 0))
+                clearForms((ViewGroup) view);
+        }
+    }
+
+    private boolean isAllFieldFilled(ViewGroup group) {
+        for (int i = 0, count = group.getChildCount(); i < count; ++i) {
+            View view = group.getChildAt(i);
+            if (view instanceof EditText) {
+                TextView textView = (EditText) view;
+                if (TextUtils.isEmpty(textView.getText().toString())) {
+                    textView.setError(getResources().getString(R.string.lostfound_bad_fill_data));
+                    isFilled = false;
+                }
+            }
+            if (view instanceof ViewGroup && (((ViewGroup) view).getChildCount() > 0))
+                isAllFieldFilled((ViewGroup) view);
+        }
+        return isFilled;
+    }
+
+    private void clearFields() {
+        imageFile = null;
+        lostFoundDTO = null;
+        imageUri = null;
+    }
+
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() <= 0;
     }
 
 }

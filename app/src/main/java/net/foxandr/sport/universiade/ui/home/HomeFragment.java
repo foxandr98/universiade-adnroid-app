@@ -99,9 +99,9 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                         GamesDTO selectedSportsDTO = (GamesDTO) parent.getItemAtPosition(position);
-                        Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
-                                        selectedSportsDTO.getGameName(),
-                                Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
+//                                        selectedSportsDTO.getGameName(),
+//                                Toast.LENGTH_SHORT).show();
                         setGamesInfo(view, selectedSportsDTO);
                         getSports(view, resource.get(position).getGameId());
                     }
@@ -152,9 +152,9 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                         SportsDTO selectedSportsDTO = (SportsDTO) parent.getItemAtPosition(position);
-                        Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
-                                        selectedSportsDTO.getSportName(),
-                                Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
+//                                        selectedSportsDTO.getSportName(),
+//                                Toast.LENGTH_SHORT).show();
                         Intent eventsActivity = new Intent(getActivity(), EventsActivity.class);
                         eventsActivity.putExtra("sportsDTO", selectedSportsDTO);
                         eventsActivity.putExtra("gameId", gameId);

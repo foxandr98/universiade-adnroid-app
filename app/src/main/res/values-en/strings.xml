@@ -55,4 +55,6 @@
     <string name="lostfound_your_contacts">Your contacts</string>
     <string name="lostfound_hint_your_contacts">For example: Phone +7–912–333–33–33, Mail: diplom@mail.ru</string>
     <string name="lostfound_send_request">Submit a request</string>
+
+    <string name="lostfound_success">Request submitted:&#160;</string>
 </resources>

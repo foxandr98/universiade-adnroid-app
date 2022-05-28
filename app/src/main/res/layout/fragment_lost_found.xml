@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -7,127 +7,130 @@
         android:orientation="vertical"
         android:background="@color/light_gray">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lostfound_describe_item"
-            style="@style/great_bold_text_style"
-            />
-
-    <EditText
-            android:id="@+id/lostfound_item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/lostfound_hint_describe_item"
-            style="@style/great_text_style"
-            android:inputType="textMultiLine"
-            android:maxLength="400"
-            android:minLines="2"
-            android:maxLines="2"
-            android:layout_weight="2"
-            />
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lostfound_describe_place"
-            style="@style/great_bold_text_style" />
-
-    <EditText
-            android:id="@+id/lostfound_place"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/lostfound_hint_describe_place"
-            style="@style/great_text_style"
-            android:inputType="textMultiLine"
-            android:maxLength="150"
-            android:minLines="2"
-            android:maxLines="2"
-            android:layout_weight="2"
-            />
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lostfound_city"
-            style="@style/great_bold_text_style" />
-
-    <EditText
-            android:id="@+id/lostfound_city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/lostfound_hint_city"
-            style="@style/great_text_style"
-            android:maxLength="100" />
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lostfound_your_name"
-            style="@style/great_bold_text_style" />
-
-    <EditText
-            android:id="@+id/lostfound_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/lostfound_hint_your_name"
-            style="@style/great_text_style"
-            android:maxLength="50"
-            android:layout_weight="2"/>
-
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lostfound_your_contacts"
-            style="@style/great_bold_text_style" />
-
-    <EditText
-            android:id="@+id/lostfound_contacts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/lostfound_hint_your_contacts"
-            style="@style/great_text_style"
-            android:maxLength="100"
-            android:minLines="2"
-            android:maxLines="2"
-            android:layout_weight="1"/>
-
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Choose the image"
-            style="@style/great_bold_text_style"
-            android:layout_weight="1"/>
-
     <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-        <Button
-                android:id="@+id/lostfound_get_image_button"
-                android:layout_height="match_parent"
-                android:layout_width="wrap_content"
-                android:text="Choose the image" />
-        <ImageView
-                android:id="@+id/lostfound_image"
+            android:layout_height="match_parent"
+            >
+
+        <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="fill"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="60dp"
-                />
+                android:layout_height="wrap_content"
+                android:text="@string/lostfound_describe_item"
+                style="@style/great_bold_text_style" />
 
+        <EditText
+                android:id="@+id/lostfound_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lostfound_hint_describe_item"
+                style="@style/great_text_style"
+                android:inputType="textMultiLine"
+                android:maxLength="400"
+                android:minLines="2"
+                android:maxLines="2"
+                android:layout_weight="2" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lostfound_describe_place"
+                style="@style/great_bold_text_style" />
+
+        <EditText
+                android:id="@+id/lostfound_place"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lostfound_hint_describe_place"
+                style="@style/great_text_style"
+                android:inputType="textMultiLine"
+                android:maxLength="150"
+                android:minLines="2"
+                android:maxLines="2"
+                android:layout_weight="2" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lostfound_city"
+                style="@style/great_bold_text_style" />
+
+        <EditText
+                android:id="@+id/lostfound_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lostfound_hint_city"
+                style="@style/great_text_style"
+                android:maxLength="100" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lostfound_your_name"
+                style="@style/great_bold_text_style" />
+
+        <EditText
+                android:id="@+id/lostfound_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lostfound_hint_your_name"
+                style="@style/great_text_style"
+                android:maxLength="50"
+                android:layout_weight="2" />
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lostfound_your_contacts"
+                style="@style/great_bold_text_style" />
+
+        <EditText
+                android:id="@+id/lostfound_contacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/lostfound_hint_your_contacts"
+                style="@style/great_text_style"
+                android:maxLength="100"
+                android:minLines="2"
+                android:maxLines="2"
+                android:layout_weight="1" />
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose the image"
+                style="@style/great_bold_text_style"
+                android:layout_weight="1" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+            <Button
+                    android:id="@+id/lostfound_get_image_button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Choose the image" />
+
+            <ImageView
+                    android:id="@+id/lostfound_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="fill"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp" />
+
+        </LinearLayout>
+
+
+        <Button
+                android:id="@+id/lostfound_send_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lostfound_send_request"
+                android:layout_marginTop="1dp" />
     </LinearLayout>
-
-
-    <Button
-            android:id="@+id/lostfound_send_button"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7"
-            android:text="@string/lostfound_send_request"
-            android:layout_marginTop="5dp"
-            />
-</LinearLayout>
+</ScrollView>

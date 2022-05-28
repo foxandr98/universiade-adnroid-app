@@ -15,7 +15,7 @@ public class LostFoundDTO {
     @JsonProperty("cityName")
     private String cityName;
 
-    @JsonProperty("cityName")
+    @JsonProperty("isRequest")
     private Boolean isRequest;
 
     @JsonProperty("contactName")

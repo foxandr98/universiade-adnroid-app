@@ -4,7 +4,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.lostfound.LostFoundFragment"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/light_gray">
 
     <TextView
             android:layout_width="match_parent"
@@ -21,8 +22,9 @@
             style="@style/great_text_style"
             android:inputType="textMultiLine"
             android:maxLength="400"
-            android:minLines="3"
-            android:maxLines="3"
+            android:minLines="2"
+            android:maxLines="2"
+            android:layout_weight="2"
             />
 
     <TextView
@@ -39,8 +41,9 @@
             style="@style/great_text_style"
             android:inputType="textMultiLine"
             android:maxLength="150"
-            android:minLines="3"
-            android:maxLines="3"
+            android:minLines="2"
+            android:maxLines="2"
+            android:layout_weight="2"
             />
 
     <TextView
@@ -69,7 +72,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/lostfound_hint_your_name"
             style="@style/great_text_style"
-            android:maxLength="50"/>
+            android:maxLength="50"
+            android:layout_weight="2"/>
 
 
     <TextView
@@ -86,13 +90,15 @@
             style="@style/great_text_style"
             android:maxLength="100"
             android:minLines="2"
-            android:maxLines="2" />
+            android:maxLines="2"
+            android:layout_weight="1"/>
 
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Choose the image"
-            style="@style/great_bold_text_style" />
+            style="@style/great_bold_text_style"
+            android:layout_weight="1"/>
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -106,9 +112,12 @@
                 android:text="Choose the image" />
         <ImageView
                 android:id="@+id/lostfound_image"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center" />
+                android:layout_gravity="fill"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                />
 
     </LinearLayout>
 
@@ -119,5 +128,6 @@
             android:layout_height="0dp"
             android:layout_weight="7"
             android:text="@string/lostfound_send_request"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            />
 </LinearLayout>

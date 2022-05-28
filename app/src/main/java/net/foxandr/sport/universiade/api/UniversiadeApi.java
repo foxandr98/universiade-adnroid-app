@@ -3,7 +3,9 @@ package net.foxandr.sport.universiade.api;
 import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
 import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
+import net.foxandr.sport.universiade.ui.lostfound.LostFoundFragment;
 import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTO;
+import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 
@@ -43,8 +45,8 @@ public interface UniversiadeApi {
 
     @Multipart
     @POST("lost-found")
-    Call<Object> postLostfoundRequest(@Part RequestBody lostFoundDTO,
-                                      @Part MultipartBody.Part image);
+    Call<LostFoundDTOResponse> postLostfoundRequest(@Part(value = "lostFoundDTO") LostFoundDTO lostFoundDTO,
+                                                    @Part MultipartBody.Part image);
 
 
 }

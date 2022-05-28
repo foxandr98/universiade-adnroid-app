@@ -72,4 +72,13 @@ public class LostFoundDTO {
     public void setContactToNotify(String contactToNotify) {
         this.contactToNotify = contactToNotify;
     }
+
+    public LostFoundDTO(String itemDescription, String lostItemArea, String cityName, Boolean isRequest, String contactName, String contactToNotify) {
+        this.itemDescription = itemDescription;
+        this.lostItemArea = lostItemArea;
+        this.cityName = cityName;
+        this.isRequest = isRequest;
+        this.contactName = contactName;
+        this.contactToNotify = contactToNotify;
+    }
 }

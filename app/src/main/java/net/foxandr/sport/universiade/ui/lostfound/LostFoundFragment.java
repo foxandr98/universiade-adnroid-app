@@ -76,7 +76,7 @@ public class LostFoundFragment extends Fragment {
     EditText contactsView;
     Button lostfoundSendButton;
 
-    boolean isFilled;
+    boolean isFilled = true;
     MultipartBody.Part imageFile;
 
     Map<String, String> lostFoundDTO;
@@ -126,7 +126,7 @@ public class LostFoundFragment extends Fragment {
                 x -> {
                     if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                         requestPermissions( //Method of Fragment
-                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                                 MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE
                         );
                     } else {
@@ -183,7 +183,7 @@ public class LostFoundFragment extends Fragment {
 
                         @Override
                         public void onFailure(Call<LostFoundDTOResponse> call, Throwable t) {
-                            Log.d("ERROR: ", "Sports query network error");
+                            Log.d("ERROR: ", "Lostfound query network error");
                             call.cancel();
                         }
                     });

@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.api;
 
+import net.foxandr.sport.universiade.commondto.ImageEntity;
 import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
 import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.FieldMap;
@@ -51,5 +53,8 @@ public interface UniversiadeApi {
     Call<LostFoundDTOResponse> postLostfoundRequest(@Part("lostFoundDTO") Map<String, String> lostFoundDTO,
                                                     @Part MultipartBody.Part imageFile);
 
+
+    @GET("images/{imageUuid}")
+    Call<ResponseBody> getImageBytesByUuid(@Path("imageUuid") String imageUuid);
 
 }

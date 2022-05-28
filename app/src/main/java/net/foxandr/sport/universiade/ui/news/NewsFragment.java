@@ -30,12 +30,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NewsFragment extends Fragment {
-    
+
     private static final String ARG_PARAM1 = "locale";
 
     private String locale;
 
-    public NewsFragment() { }
+    public NewsFragment() {
+    }
 
     public static NewsFragment newInstance(String locale) {
         NewsFragment fragment = new NewsFragment();
@@ -82,14 +83,15 @@ public class NewsFragment extends Fragment {
                 AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                        NewsDTO selectedNewsDTO = (NewsDTO)parent.getItemAtPosition(position);
+                        NewsDTO selectedNewsDTO = (NewsDTO) parent.getItemAtPosition(position);
                         Toast.makeText(view.getContext(), getResources().getString(R.string.you_chose) +
-                                selectedNewsDTO.getNewsTEntities().get(0).getTitle(),
+                                        selectedNewsDTO.getNewsTEntities().get(0).getTitle(),
                                 Toast.LENGTH_SHORT).show();
 
-                        Intent eventsActivity = new Intent(getActivity(), NewsDetailsActivity.class);
-                        eventsActivity.putExtra("newsDTO", selectedNewsDTO);
-                        startActivity(eventsActivity);
+                        Intent newsDetails = new Intent(getActivity(), NewsDetailsActivity.class);
+                        newsDetails.putExtra("locale", locale);
+                        newsDetails.putExtra("newsDTO", selectedNewsDTO);
+                        startActivity(newsDetails);
                     }
                 };
                 newsDTOListView.setOnItemClickListener(itemListener);
@@ -97,11 +99,11 @@ public class NewsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<NewsDTO>> call, Throwable t) {
-                Log.d("ERROR: ","Sports query network error");
+                Log.d("ERROR: ", "Sports query network error");
                 call.cancel();
             }
         });
 
     }
-    
+
 }

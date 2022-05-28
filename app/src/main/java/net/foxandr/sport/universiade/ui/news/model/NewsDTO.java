@@ -30,7 +30,7 @@ public class NewsDTO implements Serializable {
     private ImageEntity imagesEntity;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class NewsTEntity{
+    public static class NewsTEntity implements Serializable {
         @JsonProperty("title")
         private String title;
 

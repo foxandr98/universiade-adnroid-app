@@ -62,7 +62,7 @@ public class EventsDTOListAdapter extends ArrayAdapter<EventsDTO> {
 
         String formattedTime = TimeParser.getFormattedOffsetDataTimeFromString(
                 eventsDTO.getEventTime(),
-                DateTimeFormatter.ofPattern("HH:mm uuuu-MM-dd")
+                DateTimeFormatter.ofPattern("HH:mm \nuuuu-MM-dd")
         );
         timeView.setText(formattedTime);
 

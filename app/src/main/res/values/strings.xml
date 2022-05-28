@@ -59,4 +59,5 @@
 
     <string name="lostfound_bad">Not all fields are filled!</string>
     <string name="lostfound_bad_fill_data">Enter data!</string>
+    <string name="lostfound_choose_the_image_button">Choose the image</string>
 </resources>

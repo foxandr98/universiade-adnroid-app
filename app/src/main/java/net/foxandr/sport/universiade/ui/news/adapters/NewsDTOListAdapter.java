@@ -50,7 +50,7 @@ public class NewsDTOListAdapter extends ArrayAdapter<NewsDTO> {
 
         String formattedTime = TimeParser.getFormattedOffsetDataTimeFromString(
                 newsDTO.getCreatedOn(),
-                DateTimeFormatter.ofPattern("HH:mm uuuu-MM-dd")
+                DateTimeFormatter.ofPattern("HH:mm \nuuuu-MM-dd")
         );
         createdOnView.setText(formattedTime);
 

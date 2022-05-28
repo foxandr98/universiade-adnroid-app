@@ -60,4 +60,5 @@
 
     <string name="lostfound_bad">Nicht alle Felder sind ausgefüllt!</string>
     <string name="lostfound_bad_fill_data">Daten eingeben!</string>
+    <string name="lostfound_choose_the_image_button">Wählen Sie das Bild aus</string>
 </resources>

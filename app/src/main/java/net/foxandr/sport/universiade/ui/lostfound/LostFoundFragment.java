@@ -166,7 +166,7 @@ public class LostFoundFragment extends Fragment {
 
                             String timeSent = TimeParser.getFormattedOffsetDataTimeFromString(
                                     resource.getCreatedOn(),
-                                    DateTimeFormatter.ofPattern("HH:mm uuuu-MM-dd")
+                                    DateTimeFormatter.ofPattern("HH:mm \nuuuu-MM-dd")
                             );
 
 

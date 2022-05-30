@@ -2,21 +2,16 @@ package net.foxandr.sport.universiade.ui.lostfound;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.provider.DocumentsContract;
@@ -27,22 +22,15 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
-import net.foxandr.sport.universiade.ui.activities.EventsActivity;
-import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
-import net.foxandr.sport.universiade.ui.home.games.mainsports.adapters.SportsDTOListAdapter;
-import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTO;
 import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
 import net.foxandr.sport.universiade.utils.CustomToast;
 import net.foxandr.sport.universiade.utils.TimeParser;
@@ -51,7 +39,6 @@ import org.threeten.bp.format.DateTimeFormatter;
 
 import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import okhttp3.MediaType;
@@ -60,8 +47,6 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Multipart;
-import retrofit2.http.PartMap;
 
 
 public class LostFoundFragment extends Fragment {

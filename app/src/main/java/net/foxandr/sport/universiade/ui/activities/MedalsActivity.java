@@ -26,6 +26,7 @@ import retrofit2.Response;
 public class MedalsActivity extends AppCompatActivity {
 
     private String locale;
+    private Long gameId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MedalsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.medals_table));
         Bundle arguments = getIntent().getExtras();
         locale = arguments.getString("locale");
+        gameId = arguments.getLong("gameId");
         setMedalsList(this);
     }
 
@@ -41,7 +43,7 @@ public class MedalsActivity extends AppCompatActivity {
 
         ListView medalsDTOListView = this.findViewById(R.id.medals_dto_list);
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
-        Call<List<MedalsDTO>> call = api.getMedalsByLocale(locale);
+        Call<List<MedalsDTO>> call = api.getMedalsByLocale(gameId, locale);
         call.enqueue(new Callback<List<MedalsDTO>>() {
             @Override
             public void onResponse(Call<List<MedalsDTO>> call, Response<List<MedalsDTO>> response) {

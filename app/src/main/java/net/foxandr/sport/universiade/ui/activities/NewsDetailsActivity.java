@@ -3,27 +3,19 @@ package net.foxandr.sport.universiade.ui.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
-import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
-import net.foxandr.sport.universiade.ui.home.games.mainsports.adapters.SportsDTOListAdapter;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 
 import java.io.IOException;
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

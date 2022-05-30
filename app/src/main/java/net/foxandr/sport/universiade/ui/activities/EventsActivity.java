@@ -3,12 +3,13 @@ package net.foxandr.sport.universiade.ui.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
@@ -16,7 +17,7 @@ import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.adapters.EventsDTOListAdapter;
-import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
+import net.foxandr.sport.universiade.ui.home.games.sports.SportsDTO;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ import retrofit2.Response;
 
 public class EventsActivity extends AppCompatActivity {
 
-    SportsDTO sportDTO;
+    SportsDTO sportsDTO;
     Long gameId;
     String locale;
 
@@ -37,15 +38,26 @@ public class EventsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getResources().getString(R.string.schedule));
         Bundle arguments = getIntent().getExtras();
         locale = arguments.getString("locale");
-        sportDTO = (SportsDTO)arguments.getSerializable("sportsDTO");
+        sportsDTO = (SportsDTO) arguments.getSerializable("sportsDTO");
         gameId = arguments.getLong("gameId");
+        setHeader(this);
         setEvents(this);
+    }
+
+    private void setHeader(Context context) {
+        ImageView imageView = findViewById(R.id.events_sport_image);
+        TextView textView = findViewById(R.id.events_sport_name);
+        textView.setText(sportsDTO.getSportName());
+        imageView.setImageResource(getResources().
+                getIdentifier("sport_" + sportsDTO.getSportCode().toLowerCase(),
+                        "drawable",
+                        context.getPackageName()));
     }
 
     private void setEvents(Context context) {
         ListView eventsDTOList = findViewById(R.id.events_dto_list);
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
-        Call<List<EventsDTO>> call = api.getEventsByGameIdAndSportIdAndLocale(gameId, sportDTO.getSportId(), locale);
+        Call<List<EventsDTO>> call = api.getEventsByGameIdAndSportIdAndLocale(gameId, sportsDTO.getSportId(), locale);
 
         call.enqueue(new Callback<List<EventsDTO>>() {
             @Override

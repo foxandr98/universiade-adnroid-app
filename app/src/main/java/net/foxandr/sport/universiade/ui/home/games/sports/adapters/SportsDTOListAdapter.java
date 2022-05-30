@@ -1,4 +1,4 @@
-package net.foxandr.sport.universiade.ui.home.games.mainsports.adapters;
+package net.foxandr.sport.universiade.ui.home.games.sports.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import net.foxandr.sport.universiade.R;
-import net.foxandr.sport.universiade.ui.home.games.mainsports.SportsDTO;
+import net.foxandr.sport.universiade.ui.home.games.sports.SportsDTO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package net.foxandr.sport.universiade.ui.home.games.mainsports;
+package net.foxandr.sport.universiade.ui.home.games.sports;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -68,4 +68,6 @@
     <string name="events_details_country">Страна</string>
     <string name="events_details_university">Университет</string>
     <string name="events_details_result">Результат</string>
+
+    <string name="venues_details_title">Место проведения</string>
 </resources>

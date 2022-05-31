@@ -10,6 +10,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
+
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
@@ -36,6 +38,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
         locale = arguments.getString("locale");
         newsDTO = (NewsDTO) arguments.getSerializable("newsDTO");
         setNewsDetails(this);
+        AndroidThreeTen.init(this);
     }
 
     private void setNewsDetails(Context context) {

@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
+
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
@@ -42,6 +44,7 @@ public class EventsActivity extends AppCompatActivity {
         gameId = arguments.getLong("gameId");
         setHeader(this);
         setEvents(this);
+        AndroidThreeTen.init(this);
     }
 
     private void setHeader(Context context) {

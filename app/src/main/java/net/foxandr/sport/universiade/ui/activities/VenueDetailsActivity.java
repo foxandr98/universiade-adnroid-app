@@ -1,38 +1,42 @@
 package net.foxandr.sport.universiade.ui.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import net.foxandr.sport.universiade.R;
+import net.foxandr.sport.universiade.commondto.VenuesEntity;
+import net.foxandr.sport.universiade.ui.maps.MapsFragment;
 
 public class VenueDetailsActivity extends AppCompatActivity {
-
-    private SupportMapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venue_details);
+        getSupportActionBar().setTitle(getResources().getString(R.string.venues_details_title));
+        VenuesEntity venuesEntity = (VenuesEntity) getIntent().getExtras().getSerializable("venuesEntity");
 
-        Fragment fragment = new MapsFragment();
+        TextView venueNameView = findViewById(R.id.venue_details_stadium_name);
+        TextView venueAddressView = findViewById(R.id.venue_details_address);
 
-        // Получить фрагмент карты и быть уведомленным, когда карта готова к использованию
-        getSupportFragmentManager()
-                .beginTransaction().replace(R.id.venue_frame_layout, fragment)
+        VenuesEntity.VenuesTEntity venueTranslatedInfo = venuesEntity.getVenuesTEntities().get(0);
+        venueNameView.setText(venueTranslatedInfo.getVenueName());
+        venueAddressView.setText(venueTranslatedInfo.getAddress());
+
+        Fragment fragment = MapsFragment.newInstance(
+                venuesEntity.getLongitude(),
+                venuesEntity.getLatitude(),
+                venueTranslatedInfo.getVenueName());
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.venue_fragment_container, fragment, null)
                 .commit();
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
+        AndroidThreeTen.init(this);
     }
-
-
 }

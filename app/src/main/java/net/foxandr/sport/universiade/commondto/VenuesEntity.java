@@ -11,17 +11,17 @@ import java.util.List;
 public class VenuesEntity implements Serializable {
 
     @JsonProperty("longitude")
-    private BigDecimal longitude;
+    private Double longitude;
 
     @JsonProperty("latitude")
-    private BigDecimal latitude;
+    private Double latitude;
 
     @JsonProperty("venuesTEntities")
     private List<VenuesTEntity> venuesTEntities;
 
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    static class VenuesTEntity implements Serializable {
+    public static class VenuesTEntity implements Serializable {
 
         @JsonProperty("name")
         private String venueName;
@@ -47,19 +47,19 @@ public class VenuesEntity implements Serializable {
     }
 
 
-    public BigDecimal getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(BigDecimal longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    public BigDecimal getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(BigDecimal latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 

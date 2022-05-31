@@ -68,4 +68,6 @@
     <string name="events_details_country">Land</string>
     <string name="events_details_university">Universität</string>
     <string name="events_details_result">Ergebnis</string>
+
+    <string name="venues_details_title">Veranstaltungort</string>
 </resources>

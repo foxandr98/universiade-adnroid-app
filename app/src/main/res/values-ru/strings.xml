@@ -61,4 +61,11 @@
     <string name="lostfound_bad">Не все поля заполнены!</string>
     <string name="lostfound_bad_fill_data">Введите данные!</string>
     <string name="lostfound_choose_the_image_button">Выбрать картинку</string>
+
+    <string name="events_details_results">Результаты</string>
+
+    <string name="events_details_participant">Участник</string>
+    <string name="events_details_country">Страна</string>
+    <string name="events_details_university">Университет</string>
+    <string name="events_details_result">Результат</string>
 </resources>

@@ -62,4 +62,11 @@
     <string name="lostfound_bad_fill_data">Enter data!</string>
     <string name="lostfound_choose_the_image_button">Choose the image</string>
 
+    <string name="events_details_results">Results</string>
+
+    <string name="events_details_participant">Participant</string>
+    <string name="events_details_country">Country</string>
+    <string name="events_details_university">University</string>
+    <string name="events_details_result">Result</string>
+
 </resources>

@@ -61,4 +61,11 @@
     <string name="lostfound_bad">Nicht alle Felder sind ausgefüllt!</string>
     <string name="lostfound_bad_fill_data">Daten eingeben!</string>
     <string name="lostfound_choose_the_image_button">Wähle ein Bild</string>
+
+    <string name="events_details_results">Ergebnis</string>
+
+    <string name="events_details_participant">Teilnehmer</string>
+    <string name="events_details_country">Land</string>
+    <string name="events_details_university">Universität</string>
+    <string name="events_details_result">Ergebnis</string>
 </resources>

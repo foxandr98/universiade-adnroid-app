@@ -2,6 +2,7 @@ package net.foxandr.sport.universiade.api;
 
 import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
+import net.foxandr.sport.universiade.ui.home.games.events.competitors.CompetitorsResultsDTO;
 import net.foxandr.sport.universiade.ui.home.games.sports.SportsDTO;
 import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
@@ -50,5 +51,12 @@ public interface UniversiadeApi {
 
     @GET("images/{imageUuid}")
     Call<ResponseBody> getImageBytesByUuid(@Path("imageUuid") String imageUuid);
+
+
+    @GET("games/{gameId}/events/{eventId}/results?")
+    Call<List<CompetitorsResultsDTO>> getCompetitorsResultsByGameIdAndEventsId(@Path("gameId") Long gameId,
+                                                                               @Path("eventId") Long eventId,
+                                                                               @Query("locale") String locale);
+
 
 }

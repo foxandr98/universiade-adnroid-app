@@ -14,6 +14,7 @@ import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.genderdisciplines.GenderDisciplinesEntity;
 import net.foxandr.sport.universiade.ui.home.games.events.genderdisciplines.disciplines.DisciplinesEntity;
 import net.foxandr.sport.universiade.ui.home.games.events.stages.StagesEntity;
+import net.foxandr.sport.universiade.utils.DataBaseEnumsUtils;
 import net.foxandr.sport.universiade.utils.TimeParser;
 
 import org.threeten.bp.OffsetDateTime;
@@ -53,7 +54,7 @@ public class EventsDTOListAdapter extends ArrayAdapter<EventsDTO> {
         StagesEntity stagesEntity = eventsDTO.getStagesEntity();
 
         nameView.setText(disciplinesEntity.getDisciplinesTEntities().get(0).getName());
-        setGenderType(categoryGender, genderDisciplinesEntity);
+        DataBaseEnumsUtils.setGenderTypeToView(getContext(), categoryGender, genderDisciplinesEntity);
         categoryType.setText(disciplinesEntity.getIsIndividual()
                 ? R.string.events_individual
                 : R.string.events_team);
@@ -76,20 +77,6 @@ public class EventsDTOListAdapter extends ArrayAdapter<EventsDTO> {
     }
 
 
-    private void setGenderType(TextView categoryView, GenderDisciplinesEntity genderDisciplinesEntity) {
-        int genderTypeResource;
-        switch (genderDisciplinesEntity.getGenderType()) {
-            case "m":
-                genderTypeResource = R.string.events_men;
-                break;
-            case "f":
-                genderTypeResource = R.string.events_women;
-                break;
-            default:
-                genderTypeResource = R.string.events_mixed;
-                break;
-        }
-        categoryView.setText(getContext().getResources().getString(genderTypeResource));
-    }
+
 
 }

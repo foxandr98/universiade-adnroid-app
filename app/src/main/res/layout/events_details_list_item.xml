@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+        <TextView
+                android:id="@+id/events_details_athlete_first_name"
+                android:text="First name"
+                style="@style/great_small_horizontal_text_style"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_weight="1" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+        <TextView
+                android:id="@+id/events_details_athlete_last_name"
+                android:text="Last name"
+                style="@style/great_small_horizontal_text_style"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_weight="1" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+        <TextView
+                android:id="@+id/events_details_athlete_middle_name"
+                android:text="Middle name"
+                style="@style/great_small_vertical_text_style"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <ImageView
+            android:id="@+id/events_details_country"
+            android:text="Country"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    <TextView
+            android:id="@+id/events_details_university"
+            android:text="University"
+            android:layout_weight="4"
+            style="@style/great_small_horizontal_text_style" />
+
+    <TextView
+            android:id="@+id/events_details_result"
+            android:text="Result"
+            android:layout_weight="4"
+            style="@style/great_small_horizontal_text_style" />
+</LinearLayout>

@@ -9,11 +9,12 @@ import net.foxandr.sport.universiade.ui.home.games.events.stages.StagesEntity;
 
 import org.threeten.bp.Instant;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EventsDTO {
+public class EventsDTO implements Serializable {
 
     @JsonProperty("id")
     private Long id;

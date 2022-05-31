@@ -5,9 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import net.foxandr.sport.universiade.ui.home.games.events.genderdisciplines.disciplines.DisciplinesEntity;
 
+import java.io.Serializable;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GenderDisciplinesEntity {
+public class GenderDisciplinesEntity implements Serializable {
 
     @JsonProperty("id")
     private Long id;

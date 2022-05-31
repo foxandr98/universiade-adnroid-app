@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.EventsDetailsActivity"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:background="@color/beige">
+
+        <TextView
+                android:id="@+id/events_details_discipline_name"
+                android:text="Дисциплина"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                style="@style/great_bold_text_style" />
+
+        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="vertical"
+                android:background="@color/beige">
+
+            <TextView
+                    android:id="@+id/events_details_category_gender_name"
+                    android:text="Гендер"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    style="@style/great_bold_text_style" />
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+            <TextView
+                    android:id="@+id/events_details_category_type_name"
+                    android:text="Тип"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    style="@style/great_bold_text_style" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/beige">
+
+        <TextView
+                android:text="@string/time"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/great_bold_text_style" />
+
+        <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray" />
+
+        <TextView
+                android:id="@+id/events_details_time"
+                android:text="@string/time"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                style="@style/great_bold_text_style" />
+
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+    <TextView
+            android:id="@+id/events_details_stage"
+            android:text="Стадия"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/great_bold_text_style"
+            android:textSize="24sp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/beige">
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="60dp"
+                android:text="Stadium"
+                style="@style/great_text_style"
+                android:backgroundTint="@color/purple_700" />
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/beige">
+
+        <TextView
+                android:text="@string/events_details_participant"
+                android:layout_weight="5"
+                style="@style/great_bold_small_text_style" />
+
+        <TextView
+                android:text="@string/events_details_country"
+                android:layout_weight="2"
+                style="@style/great_bold_small_text_style" />
+
+        <TextView
+                android:text="@string/events_details_university"
+                android:layout_weight="4"
+                style="@style/great_bold_small_text_style" />
+
+        <TextView
+                android:text="@string/events_details_result"
+                android:layout_weight="4"
+                style="@style/great_bold_small_text_style" />
+
+    </LinearLayout>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+    <ListView
+            android:id="@+id/events_details_competitors_results_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -3,11 +3,12 @@ package net.foxandr.sport.universiade.commondto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class VenuesEntity {
+public class VenuesEntity implements Serializable {
 
     @JsonProperty("longitude")
     private BigDecimal longitude;
@@ -20,7 +21,7 @@ public class VenuesEntity {
 
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    static class VenuesTEntity{
+    static class VenuesTEntity implements Serializable {
 
         @JsonProperty("name")
         private String venueName;

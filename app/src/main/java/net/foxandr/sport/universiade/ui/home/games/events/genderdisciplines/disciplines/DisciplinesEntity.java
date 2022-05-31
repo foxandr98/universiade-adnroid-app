@@ -3,11 +3,12 @@ package net.foxandr.sport.universiade.ui.home.games.events.genderdisciplines.dis
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DisciplinesEntity {
+public class DisciplinesEntity implements Serializable  {
 
     @JsonProperty("id")
     private Long id;
@@ -25,7 +26,7 @@ public class DisciplinesEntity {
     private Boolean isIndividual;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class DisciplinesTEntity{
+    public static class DisciplinesTEntity implements Serializable {
 
         @JsonProperty("name")
         private String name;

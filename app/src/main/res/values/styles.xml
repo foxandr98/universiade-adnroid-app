@@ -7,12 +7,30 @@
         <item name="android:layout_width">0dp</item>
     </style>
 
-    <style name="great_small_text_style">
+
+    <style name="great_small_horizontal_text_style">
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">0dp</item>
     </style>
+
+    <style name="great_small_vertical_text_style">
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+
+    <style name="great_bold_small_text_style">
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 
     <style name="great_bold_text_style">
         <item name="android:textSize">20sp</item>

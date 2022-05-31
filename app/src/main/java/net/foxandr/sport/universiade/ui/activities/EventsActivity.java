@@ -3,7 +3,9 @@ package net.foxandr.sport.universiade.ui.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -76,9 +78,11 @@ public class EventsActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                         EventsDTO selectedEventsDTO = (EventsDTO) parent.getItemAtPosition(position);
-                        Toast.makeText(context,
-                                getResources().getString(R.string.you_chose) + selectedEventsDTO.getId(),
-                                Toast.LENGTH_SHORT).show();
+                        Intent eventsDetailsActivity = new Intent(context, EventsDetailsActivity.class);
+                        eventsDetailsActivity.putExtra("eventsDTO", selectedEventsDTO);
+                        eventsDetailsActivity.putExtra("gameId", gameId);
+                        eventsDetailsActivity.putExtra("locale", locale);
+                        startActivity(eventsDetailsActivity);
                     }
                 };
                 eventsDTOList.setOnItemClickListener(itemListener);

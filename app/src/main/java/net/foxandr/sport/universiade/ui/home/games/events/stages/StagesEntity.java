@@ -3,10 +3,11 @@ package net.foxandr.sport.universiade.ui.home.games.events.stages;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StagesEntity{
+public class StagesEntity implements Serializable {
 
     @JsonProperty("stageCode")
     private String stageCode;
@@ -15,7 +16,7 @@ public class StagesEntity{
     private List<StagesTEntity> stagesTEntities;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class StagesTEntity{
+    public static class StagesTEntity implements Serializable  {
 
         @JsonProperty("name")
         private String stageName;

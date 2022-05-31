@@ -77,4 +77,7 @@
     <string name="login_button">Войти</string>
     <string name="login_welcome">Добро пожаловать!</string>
     <string name="login_error">Проверьте введенную информацию</string>
+
+    <string name="volunteers_schedule">Мое \nрасписание</string>
+    <string name="extra_info">Доп. информация</string>
 </resources>

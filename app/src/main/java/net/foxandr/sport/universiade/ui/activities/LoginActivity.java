@@ -3,6 +3,7 @@ package net.foxandr.sport.universiade.ui.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -13,7 +14,8 @@ import android.widget.Toast;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
-import net.foxandr.sport.universiade.ui.login.data.model.LoggedInUserDTO;
+import net.foxandr.sport.universiade.ui.users.LoggedInUserDTO;
+import net.foxandr.sport.universiade.utils.PasswordEncoder;
 
 import java.io.UnsupportedEncodingException;
 
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     String username = usernameView.getText().toString();
                     String password = passwordView.getText().toString();
-                    String token = getAuthToken(username, password);
+                    String token = PasswordEncoder.getAuthToken(username, password);
 
                     UniversiadeApi api = UniversiadeService.getInstance().getApi();
                     Call<LoggedInUserDTO> call = api.loginAndGetLoggedInUserDTO(token);
@@ -49,9 +51,14 @@ public class LoginActivity extends AppCompatActivity {
                                 usernameView.setError(getResources().getString(R.string.login_error));
                                 passwordView.setError(getResources().getString(R.string.login_error));
                             } else {
-                                LoggedInUserDTO resource = response.body();
+                                LoggedInUserDTO loggedInUserDTO = response.body();
+                                loggedInUserDTO.setPassword(password);
                                 Toast.makeText(x.getContext(), getResources().getString(R.string.login_welcome), Toast.LENGTH_LONG).show();
-                                finish();
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("isAuthorized", true);
+                                intent.putExtra("loggedInUserDTO", loggedInUserDTO);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
                             }
                         }
 
@@ -66,13 +73,4 @@ public class LoginActivity extends AppCompatActivity {
         );
     }
 
-    public static String getAuthToken(String username, String password) {
-        byte[] data = new byte[0];
-        try {
-            data = (username + ":" + password).getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return "Basic " + Base64.encodeToString(data, Base64.NO_WRAP);
-    }
 }

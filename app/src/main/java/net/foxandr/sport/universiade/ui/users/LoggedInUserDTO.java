@@ -1,13 +1,14 @@
-package net.foxandr.sport.universiade.ui.login.data.model;
+package net.foxandr.sport.universiade.ui.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LoggedInUserDTO {
+public class LoggedInUserDTO implements Serializable {
 
     @JsonProperty("username")
     private String username;
@@ -17,9 +18,8 @@ public class LoggedInUserDTO {
     @JsonProperty("authorities")
     private List<Authority> authorities;
 
-
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class Authority{
+    public static class Authority implements Serializable {
         @JsonProperty("authority")
         private String authority;
     }

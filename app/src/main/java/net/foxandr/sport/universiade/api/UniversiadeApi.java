@@ -4,10 +4,11 @@ import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.competitors.CompetitorsResultsDTO;
 import net.foxandr.sport.universiade.ui.home.games.sports.SportsDTO;
-import net.foxandr.sport.universiade.ui.login.data.model.LoggedInUserDTO;
+import net.foxandr.sport.universiade.ui.users.LoggedInUserDTO;
 import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
+import net.foxandr.sport.universiade.ui.users.volunteers.VolunteerScheduleDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -63,5 +64,11 @@ public interface UniversiadeApi {
 
     @GET("login")
     Call<LoggedInUserDTO> loginAndGetLoggedInUserDTO(@Header("Authorization") String credential);
+
+
+    @GET("volunteer/{volunteerName}/schedule")
+    Call<List<VolunteerScheduleDTO>> getVolunteerSchedule(@Header("Authorization") String credentials,
+                                                    @Path("volunteerName") String volunteerName);
+
 
 }

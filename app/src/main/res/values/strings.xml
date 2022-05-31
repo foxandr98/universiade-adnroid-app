@@ -78,4 +78,7 @@
     <string name="login_welcome">Welcome!</string>
     <string name="login_error">Check entered information</string>
 
+    <string name="volunteers_schedule">My Schedule</string>
+    <string name="extra_info">Extra information</string>
+
 </resources>

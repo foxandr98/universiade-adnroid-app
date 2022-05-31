@@ -1,7 +1,6 @@
 package net.foxandr.sport.universiade.ui.activities;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
@@ -20,25 +19,21 @@ import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.ui.home.HomeFragment;
+import net.foxandr.sport.universiade.ui.users.LoggedInUserDTO;
+import net.foxandr.sport.universiade.ui.users.volunteers.VolunteerScheduleFragment;
 import net.foxandr.sport.universiade.utils.ViewPager2Adapter;
 import net.foxandr.sport.universiade.ui.lostfound.LostFoundFragment;
 import net.foxandr.sport.universiade.ui.news.NewsFragment;
 import net.foxandr.sport.universiade.utils.LocaleHelper;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements TabLayoutMediator.TabConfigurationStrategy {
     String appLocale;
-
-    ViewPager2 viewPager2;
-    TabLayout tabLayout;
     Menu menu;
-
     List<String> titles;
-    Toolbar toolbar;
-
-    boolean isAuthenticated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,31 +41,42 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         if (appLocale == null)
             appLocale = LocaleHelper.initLocale(this);
         setContentView(R.layout.activity_main);
-        viewPager2 = findViewById(R.id.view_pager2);
-        tabLayout = findViewById(R.id.tabs);
-        toolbar = findViewById(R.id.toolbar);
-
-        Resources res = getResources();
-        titles = Arrays.asList(res.getString(R.string.tab_home),
-                res.getString(R.string.tab_news),
-                res.getString(R.string.tab_lost_found)
-        );
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(res.getString(R.string.app_name));
-        setViewPagerAdapter();
-        new TabLayoutMediator(tabLayout, viewPager2, this).attach();
+        setTabsAndToolbar();
         AndroidThreeTen.init(this);
     }
 
-    public void setViewPagerAdapter() {
+    public void setTabsAndToolbar() {
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ViewPager2 viewPager2View = findViewById(R.id.view_pager2);
         ViewPager2Adapter adapter = new ViewPager2Adapter(this);
-        List<Fragment> fragmentList = Arrays.asList(
+
+        titles = new ArrayList<String>(Arrays.asList(getString(R.string.tab_home),
+                getString(R.string.tab_news),
+                getString(R.string.tab_lost_found)
+        ));
+
+        List<Fragment> fragmentList = new ArrayList<Fragment>(Arrays.asList(
                 HomeFragment.newInstance(appLocale),
                 NewsFragment.newInstance(appLocale),
                 LostFoundFragment.newInstance()
-        );
+        ));
+
+        Bundle arguments = getIntent().getExtras();
+        if (arguments != null) {
+            boolean isAuthorized = arguments.getBoolean("isAuthorized", false);
+            if (isAuthorized) {
+                LoggedInUserDTO loggedInUserDTO = (LoggedInUserDTO)arguments.getSerializable("loggedInUserDTO");
+                fragmentList.add(VolunteerScheduleFragment.newInstance(appLocale, loggedInUserDTO));
+                titles.add(getString(R.string.volunteers_schedule));
+            }
+        }
         adapter.setData(fragmentList);
-        viewPager2.setAdapter(adapter);
+        viewPager2View.setAdapter(adapter);
+        new TabLayoutMediator(tabLayout, viewPager2View, this).attach();
+        getSupportActionBar().setTitle(getString(R.string.app_name));
     }
 
     @Override
@@ -103,24 +109,16 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
                 break;
             case R.id.menu_login:
                 Intent loginForm = new Intent(this, LoginActivity.class);
+//                activityResultLauncher.launch(loginForm);
                 startActivity(loginForm);
         }
+
         return super.onOptionsItemSelected(item);
     }
 
-    public void setLocaleAndMenuIcon(String locale, String message){
-        LocaleHelper.setLocale(this,locale);
+    public void setLocaleAndMenuIcon(String locale, String message) {
+        LocaleHelper.setLocale(this, locale);
         LocaleHelper.setMenuLocaleIcon(this, menu, locale);
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (isAuthenticated){
-            Toast.makeText(this, "ВЫ АВТОРИЗОВАНЫ", Toast.LENGTH_LONG);
-        }
-        Toast.makeText(this, "ВЫ НЕ АВТОРИЗОВАНЫ", Toast.LENGTH_LONG);
     }
 }

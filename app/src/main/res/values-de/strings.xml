@@ -77,4 +77,7 @@
     <string name="login_button">Anmelden</string>
     <string name="login_welcome">Willkommen!</string>
     <string name="login_error">Eingegebene Informationen prüfen</string>
+
+    <string name="volunteers_schedule">Mein Terminplan</string>
+    <string name="extra_info">Extra information</string>
 </resources>

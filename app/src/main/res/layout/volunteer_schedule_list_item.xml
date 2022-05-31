@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/volunteers_schedule_time"
+            android:text="@string/time"
+            android:layout_weight="3"
+            style="@style/great_small_horizontal_text_style" />
+
+    <TextView
+            android:id="@+id/volunteers_schedule_venue_title"
+            android:text="@string/venues_details_title"
+            android:layout_weight="4"
+            style="@style/great_small_horizontal_text_style" />
+
+    <TextView
+            android:id="@+id/volunteers_schedule_extra_info"
+            android:text="@string/extra_info"
+            android:layout_weight="5"
+            style="@style/great_small_horizontal_text_style" />
+
+</LinearLayout>

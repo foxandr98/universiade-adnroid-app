@@ -3,26 +3,22 @@ package net.foxandr.sport.universiade.ui.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
-import net.foxandr.sport.universiade.ui.home.games.events.adapters.EventsDTOListAdapter;
 import net.foxandr.sport.universiade.ui.home.games.events.adapters.EventsDetailsListAdapter;
 import net.foxandr.sport.universiade.ui.home.games.events.competitors.CompetitorsResultsDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.genderdisciplines.GenderDisciplinesEntity;
 import net.foxandr.sport.universiade.ui.home.games.events.genderdisciplines.disciplines.DisciplinesEntity;
 import net.foxandr.sport.universiade.ui.home.games.events.stages.StagesEntity;
-import net.foxandr.sport.universiade.ui.home.games.sports.SportsDTO;
 import net.foxandr.sport.universiade.utils.DataBaseEnumsUtils;
 import net.foxandr.sport.universiade.utils.TimeParser;
 
@@ -34,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class EventsDetailsActivity extends AppCompatActivity {
+public class EventDetailsActivity extends AppCompatActivity {
 
     EventsDTO eventsDTO;
     String locale;
@@ -43,13 +39,21 @@ public class EventsDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_events_details);
+        setContentView(R.layout.activity_event_details);
         getSupportActionBar().setTitle(getResources().getString(R.string.events_details_results));
 
         Bundle arguments = getIntent().getExtras();
         locale = arguments.getString("locale");
         gameId = arguments.getLong("gameId");
         eventsDTO = (EventsDTO) arguments.getSerializable("eventsDTO");
+        Context context = this;
+        Button venueButton = findViewById(R.id.events_details_venue_button);
+        venueButton.setOnClickListener(
+                x -> {
+                    Intent venueIntent = new Intent(context, VenueDetailsActivity.class);
+                    startActivity(venueIntent);
+                }
+        );
 
         setHeader(this);
         setCompetitorsResults(this);
@@ -96,7 +100,7 @@ public class EventsDetailsActivity extends AppCompatActivity {
                 List<CompetitorsResultsDTO> resource = response.body();
                 EventsDetailsListAdapter eventsDetailsListAdapter = new EventsDetailsListAdapter(
                         context,
-                        R.layout.events_details_list_item,
+                        R.layout.event_details_list_item,
                         resource);
 
                 competitorsResultsDTOList.setAdapter(eventsDetailsListAdapter);

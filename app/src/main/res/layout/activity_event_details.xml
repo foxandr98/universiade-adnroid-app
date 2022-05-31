@@ -3,7 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activities.EventsDetailsActivity"
+        tools:context=".ui.activities.EventDetailsActivity"
         android:orientation="vertical">
 
     <LinearLayout
@@ -110,6 +110,7 @@
             android:background="@color/beige">
 
         <Button
+                android:id="@+id/events_details_venue_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="60dp"

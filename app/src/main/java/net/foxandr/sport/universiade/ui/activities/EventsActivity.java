@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
@@ -78,7 +76,7 @@ public class EventsActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                         EventsDTO selectedEventsDTO = (EventsDTO) parent.getItemAtPosition(position);
-                        Intent eventsDetailsActivity = new Intent(context, EventsDetailsActivity.class);
+                        Intent eventsDetailsActivity = new Intent(context, EventDetailsActivity.class);
                         eventsDetailsActivity.putExtra("eventsDTO", selectedEventsDTO);
                         eventsDetailsActivity.putExtra("gameId", gameId);
                         eventsDetailsActivity.putExtra("locale", locale);

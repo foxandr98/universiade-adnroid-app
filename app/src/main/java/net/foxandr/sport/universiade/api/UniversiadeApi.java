@@ -4,6 +4,7 @@ import net.foxandr.sport.universiade.ui.home.games.GamesDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.competitors.CompetitorsResultsDTO;
 import net.foxandr.sport.universiade.ui.home.games.sports.SportsDTO;
+import net.foxandr.sport.universiade.ui.login.data.model.LoggedInUserDTO;
 import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
@@ -15,6 +16,7 @@ import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -58,5 +60,8 @@ public interface UniversiadeApi {
                                                                                @Path("eventId") Long eventId,
                                                                                @Query("locale") String locale);
 
+
+    @GET("login")
+    Call<LoggedInUserDTO> loginAndGetLoggedInUserDTO(@Header("Authorization") String credential);
 
 }

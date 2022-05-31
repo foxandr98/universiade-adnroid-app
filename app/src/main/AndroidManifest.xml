@@ -22,14 +22,13 @@
             android:dataExtractionRules="@xml/data_extraction_rules"
             android:fullBackupContent="@xml/backup_rules"
             android:icon="@drawable/logo_urfu"
+            android:label="@string/app_name"
             android:requestLegacyExternalStorage="true"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.UniversiadeApp"
             android:usesCleartextTraffic="true"
-            tools:targetApi="31"
-            android:label="@string/app_name">
-
+            tools:targetApi="31">
         <!--
              To get one, follow the directions here:
 
@@ -42,6 +41,10 @@
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="${MAPS_API_KEY}" />
+
+        <activity
+                android:name=".ui.activities.LoginActivity"
+                android:exported="false" />
 
         <activity
                 android:name=".ui.activities.VenueDetailsActivity"

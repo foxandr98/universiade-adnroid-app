@@ -39,17 +39,6 @@ public class UniversiadeService {
 
     private OkHttpClient createOkHttpClient() {
         final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-        httpClient.addInterceptor(
-                new Interceptor() {
-                    @NonNull
-                    @Override
-                    public Response intercept(@NonNull Chain chain) throws IOException {
-                        final Request original = chain.request();
-                        final Request.Builder requestBuilder = original.newBuilder();
-                        final Request request = requestBuilder.build();
-                        return chain.proceed(request);
-                    }
-                });
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.level(HttpLoggingInterceptor.Level.BODY);
         httpClient.addInterceptor(logging);

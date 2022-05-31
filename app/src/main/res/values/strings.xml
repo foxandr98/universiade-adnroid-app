@@ -70,4 +70,12 @@
     <string name="events_details_result">Result</string>
 
     <string name="venues_details_title">Venue</string>
+
+    <!-- Strings related to login -->
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Sign in</string>
+    <string name="login_welcome">Welcome!</string>
+    <string name="login_error">Check entered information</string>
+
 </resources>

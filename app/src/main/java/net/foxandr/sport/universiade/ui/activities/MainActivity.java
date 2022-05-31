@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.ui.activities;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
 
     List<String> titles;
     Toolbar toolbar;
+
+    boolean isAuthenticated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
                 finish();
                 setLocaleAndMenuIcon("de", "Ausgewählte deutsche Sprache");
                 break;
+            case R.id.menu_login:
+                Intent loginForm = new Intent(this, LoginActivity.class);
+                startActivity(loginForm);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -108,4 +114,13 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isAuthenticated){
+            Toast.makeText(this, "ВЫ АВТОРИЗОВАНЫ", Toast.LENGTH_LONG);
+        }
+        Toast.makeText(this, "ВЫ НЕ АВТОРИЗОВАНЫ", Toast.LENGTH_LONG);
+    }
 }

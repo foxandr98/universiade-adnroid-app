@@ -54,25 +54,26 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         ViewPager2Adapter adapter = new ViewPager2Adapter(this);
 
         titles = new ArrayList<String>(Arrays.asList(getString(R.string.tab_home),
-                getString(R.string.tab_news),
-                getString(R.string.tab_lost_found)
+                getString(R.string.tab_news)
         ));
 
         List<Fragment> fragmentList = new ArrayList<Fragment>(Arrays.asList(
                 HomeFragment.newInstance(appLocale),
-                NewsFragment.newInstance(appLocale),
-                LostFoundFragment.newInstance()
-        ));
+                NewsFragment.newInstance(appLocale)));
 
         Bundle arguments = getIntent().getExtras();
         if (arguments != null) {
             boolean isAuthorized = arguments.getBoolean("isAuthorized", false);
             if (isAuthorized) {
-                LoggedInUserDTO loggedInUserDTO = (LoggedInUserDTO)arguments.getSerializable("loggedInUserDTO");
+                LoggedInUserDTO loggedInUserDTO = (LoggedInUserDTO) arguments.getSerializable("loggedInUserDTO");
                 fragmentList.add(VolunteerScheduleFragment.newInstance(appLocale, loggedInUserDTO));
                 titles.add(getString(R.string.volunteers_schedule));
             }
+        } else {
+            fragmentList.add(LostFoundFragment.newInstance().newInstance());
+            titles.add(getString(R.string.tab_lost_found));
         }
+
         adapter.setData(fragmentList);
         viewPager2View.setAdapter(adapter);
         new TabLayoutMediator(tabLayout, viewPager2View, this).attach();

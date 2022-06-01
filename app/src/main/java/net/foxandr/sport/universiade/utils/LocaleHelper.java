@@ -1,10 +1,12 @@
 package net.foxandr.sport.universiade.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -22,44 +24,44 @@ public class LocaleHelper {
             Map.entry("de", R.drawable.menu_germany)
     );
 
-    public static String initLocale(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(
+    public static String initLocale(Activity activity) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(
                 "selectedLanguage",
                 Context.MODE_PRIVATE);
         String languageToLoad = sharedPreferences.getString("language", "en");
-        configure(context, languageToLoad);
+        configure(activity, languageToLoad);
         return languageToLoad;
     }
 
-    public static void setLocale(Context context, String lang) {
-        SharedPreferences preferences = context.getSharedPreferences(
+    public static void setLocale(Activity activity, String lang) {
+        SharedPreferences preferences = activity.getSharedPreferences(
                 "selectedLanguage",
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("language", lang);
-
         editor.apply();
+        configure(activity, lang);
 
-        configure(context, lang);
-
-        Intent refresh = new Intent(context, MainActivity.class);
-        context.startActivity(refresh);
+        Bundle args = activity.getIntent().getExtras();
+        Intent refresh = new Intent(activity, MainActivity.class);
+        refresh.putExtras(args);
+        activity.startActivity(refresh);
     }
 
-    private static void configure(Context context, String lang) {
+    private static void configure(Activity activity, String lang) {
         Locale myLocale = new Locale(lang);
         Locale.setDefault(myLocale);
-        Resources res = context.getResources();
+        Resources res = activity.getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
         conf.setLocale(myLocale);
         res.updateConfiguration(conf, dm);
     }
 
-    public static void setMenuLocaleIcon(Context context, Menu menu, String lang) {
+    public static void setMenuLocaleIcon(Activity activity, Menu menu, String lang) {
         try {
             menu.getItem(1).setIcon(AppCompatResources.getDrawable(
-                    context,
+                    activity,
                     LOCALE_IMAGES.get(lang)
             ));
         } catch (NullPointerException ex) {

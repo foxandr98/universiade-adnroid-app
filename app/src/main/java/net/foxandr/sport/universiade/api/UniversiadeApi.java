@@ -66,9 +66,10 @@ public interface UniversiadeApi {
     Call<LoggedInUserDTO> loginAndGetLoggedInUserDTO(@Header("Authorization") String credential);
 
 
-    @GET("volunteer/{volunteerName}/schedule")
+    @GET("volunteer/{volunteerName}/schedule?")
     Call<List<VolunteerScheduleDTO>> getVolunteerSchedule(@Header("Authorization") String credentials,
-                                                    @Path("volunteerName") String volunteerName);
+                                                          @Path("volunteerName") String volunteerName,
+                                                          @Query("locale") String locale);
 
 
 }

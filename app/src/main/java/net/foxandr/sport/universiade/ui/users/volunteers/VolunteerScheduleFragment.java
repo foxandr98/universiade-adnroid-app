@@ -77,7 +77,10 @@ public class VolunteerScheduleFragment extends Fragment {
         String token = PasswordEncoder.getAuthToken(
                 loggedInUserDTO.getUsername(),
                 loggedInUserDTO.getPassword());
-        Call<List<VolunteerScheduleDTO>> call = api.getVolunteerSchedule(token, loggedInUserDTO.getUsername());
+        Call<List<VolunteerScheduleDTO>> call = api.getVolunteerSchedule(
+                token,
+                loggedInUserDTO.getUsername(),
+                locale);
         call.enqueue(new Callback<List<VolunteerScheduleDTO>>() {
             @Override
             public void onResponse(Call<List<VolunteerScheduleDTO>> call, Response<List<VolunteerScheduleDTO>> response) {

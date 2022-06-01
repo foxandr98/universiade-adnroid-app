@@ -56,17 +56,6 @@ public class MedalsActivity extends AppCompatActivity {
                         resource);
 
                 medalsDTOListView.setAdapter(medalsDTOListAdapter);
-
-                AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                        MedalsDTO selectedMedalsDTO = (MedalsDTO)parent.getItemAtPosition(position);
-                        Toast.makeText(context, getResources().getString(R.string.you_chose) + selectedMedalsDTO.getCountryName(),
-                                Toast.LENGTH_SHORT).show();
-                    }
-                };
-                medalsDTOListView.setOnItemClickListener(itemListener);
-
             }
 
             @Override

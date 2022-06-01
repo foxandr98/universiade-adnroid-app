@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import net.foxandr.sport.universiade.ui.activities.EventsActivity;
 import net.foxandr.sport.universiade.R;
@@ -71,10 +72,20 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getGames(view);
+        setGames(view);
+
+        SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.home_refresh_swipe);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setGames(view);
+                pullToRefresh.setRefreshing(false);
+            }
+        });
+
     }
 
-    public void getGames(View view) {
+    public void setGames(View view) {
         Spinner gamesDTOListSpinnerView = view.findViewById(R.id.games_spinner);
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<GamesDTO>> call = api.getGamesByLocale(locale);

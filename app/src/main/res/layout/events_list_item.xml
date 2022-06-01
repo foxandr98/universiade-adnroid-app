@@ -29,7 +29,8 @@
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
+                android:background="@android:color/darker_gray"
+                android:layout_marginHorizontal="5dp"/>
 
         <TextView
                 android:id="@+id/events_category_is_individual"

@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/great_text_style"
-            android:background="@color/beige"/>
+            android:background="@color/beige" />
 
     <View
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
         <ImageView
                 android:id="@+id/games_season_icon"
                 android:layout_weight="1"
-                style="@style/great_text_style"/>
+                style="@style/great_text_style" />
     </LinearLayout>
 
     <View
@@ -60,9 +60,15 @@
             android:background="@android:color/darker_gray" />
 
 
-    <ListView
-            android:id="@+id/sports_dto_list"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/home_refresh_swipe"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
+
+        <ListView
+                android:id="@+id/sports_dto_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

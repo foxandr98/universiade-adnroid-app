@@ -15,19 +15,19 @@
             android:background="@color/beige">
 
         <TextView
-                android:text="@string/time"
+                android:text="Время"
                 android:layout_weight="3"
                 style="@style/great_text_style"
                 android:textStyle="bold" />
 
         <TextView
-                android:text="@string/venues_details_title"
+                android:text="Место встречи"
                 android:layout_weight="4"
                 style="@style/great_text_style"
                 android:textStyle="bold" />
 
         <TextView
-                android:text="@string/extra_info"
+                android:text="Доп. информация"
                 android:layout_weight="5"
                 style="@style/great_text_style"
                 android:textStyle="bold" />

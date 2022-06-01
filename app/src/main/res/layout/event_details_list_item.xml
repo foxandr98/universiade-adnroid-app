@@ -21,7 +21,8 @@
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray"
+                android:layout_marginRight="10dp"/>
 
         <TextView
                 android:id="@+id/events_details_athlete_last_name"
@@ -34,7 +35,8 @@
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/darker_gray"
+                android:layout_marginRight="10dp"/>
 
         <TextView
                 android:id="@+id/events_details_athlete_middle_name"

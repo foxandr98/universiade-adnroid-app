@@ -67,8 +67,10 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
             boolean isAuthorized = arguments.getBoolean("isAuthorized", false);
             if (isAuthorized) {
                 LoggedInUserDTO loggedInUserDTO = (LoggedInUserDTO) arguments.getSerializable("loggedInUserDTO");
-                fragmentList.add(VolunteerScheduleFragment.newInstance(appLocale, loggedInUserDTO));
-                titles.add(getString(R.string.volunteers_schedule));
+                if (loggedInUserDTO.getAuthorities().get(0).getAuthority().equals("ROLE_ВОЛОНТЕР")) {
+                    fragmentList.add(VolunteerScheduleFragment.newInstance(appLocale, loggedInUserDTO));
+                    titles.add(getString(R.string.volunteers_schedule));
+                }
             }
         } else {
             fragmentList.add(LostFoundFragment.newInstance().newInstance());
@@ -113,6 +115,11 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
             case R.id.menu_login:
                 Intent loginForm = new Intent(this, LoginActivity.class);
                 startActivity(loginForm);
+                break;
+            case R.id.menu_logout:
+                Intent logout = new Intent(this, MainActivity.class);
+                finish();
+                startActivity(logout);
                 break;
         }
         return super.onOptionsItemSelected(item);

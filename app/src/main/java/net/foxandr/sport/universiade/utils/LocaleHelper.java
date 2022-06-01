@@ -46,7 +46,8 @@ public class LocaleHelper {
 
         Bundle args = activity.getIntent().getExtras();
         Intent refresh = new Intent(activity, MainActivity.class);
-        refresh.putExtras(args);
+        if (args != null)
+            refresh.putExtras(args);
         activity.startActivity(refresh);
     }
 

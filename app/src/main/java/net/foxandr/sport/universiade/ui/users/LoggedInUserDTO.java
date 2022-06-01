@@ -22,6 +22,14 @@ public class LoggedInUserDTO implements Serializable {
     public static class Authority implements Serializable {
         @JsonProperty("authority")
         private String authority;
+
+        public String getAuthority() {
+            return authority;
+        }
+
+        public void setAuthority(String authority) {
+            this.authority = authority;
+        }
     }
 
     public String getUsername() {

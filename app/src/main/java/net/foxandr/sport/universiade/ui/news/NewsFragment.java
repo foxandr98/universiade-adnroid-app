@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import net.foxandr.sport.universiade.ui.activities.EventsActivity;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
+import net.foxandr.sport.universiade.ui.activities.MedalsActivity;
 import net.foxandr.sport.universiade.ui.activities.NewsDetailsActivity;
 import net.foxandr.sport.universiade.ui.news.adapters.NewsDTOListAdapter;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
@@ -63,8 +65,21 @@ public class NewsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ListView newsDTOListView = view.findViewById(R.id.news_dto_list);
+        setNews(view);
 
+        SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.news_swipe_refresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setNews(view);
+                pullToRefresh.setRefreshing(false);
+            }
+        });
+
+    }
+
+    private void setNews(View view) {
+        ListView newsDTOListView = view.findViewById(R.id.news_dto_list);
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
         Call<List<NewsDTO>> call = api.getNewsByLocale(locale);
         call.enqueue(new Callback<List<NewsDTO>>() {
@@ -101,7 +116,6 @@ public class NewsFragment extends Fragment {
         });
 
     }
-
 
 
 }

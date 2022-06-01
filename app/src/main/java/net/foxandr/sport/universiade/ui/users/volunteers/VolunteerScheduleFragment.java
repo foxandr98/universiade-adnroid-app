@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
+import net.foxandr.sport.universiade.ui.activities.EventDetailsActivity;
 import net.foxandr.sport.universiade.ui.activities.NewsDetailsActivity;
 import net.foxandr.sport.universiade.ui.activities.VenueDetailsActivity;
 import net.foxandr.sport.universiade.ui.news.adapters.NewsDTOListAdapter;
@@ -71,6 +73,19 @@ public class VolunteerScheduleFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setSchedule(view);
+
+        SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.volunteers_schedule_swipe_refresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setSchedule(view);
+                pullToRefresh.setRefreshing(false);
+            }
+        });
+    }
+
+    private void setSchedule(View view) {
         ListView volunteerScheduleDTOListView = view.findViewById(R.id.volunteers_schedule_dto_list);
 
         UniversiadeApi api = UniversiadeService.getInstance().getApi();

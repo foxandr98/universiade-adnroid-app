@@ -1,6 +1,7 @@
 package net.foxandr.sport.universiade.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +46,16 @@ public class EventsActivity extends AppCompatActivity {
         setHeader(this);
         setEvents(this);
         AndroidThreeTen.init(this);
+
+        SwipeRefreshLayout pullToRefresh = findViewById(R.id.events_swipe_refresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setHeader(EventsActivity.this);
+                setEvents(EventsActivity.this);
+                pullToRefresh.setRefreshing(false);
+            }
+        });
     }
 
     private void setHeader(Context context) {

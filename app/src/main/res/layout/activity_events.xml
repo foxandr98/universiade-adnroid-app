@@ -17,7 +17,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                style="@style/great_bold_text_style"/>
+                style="@style/great_bold_text_style" />
 
         <View
                 android:layout_width="1dp"
@@ -62,8 +62,7 @@
         <TextView
                 android:text="@string/time"
                 android:layout_weight="2.6"
-                style="@style/great_bold_small_text_style"
-/>
+                style="@style/great_bold_small_text_style" />
 
         <ImageView
                 android:src="@drawable/events_finished"
@@ -77,9 +76,16 @@
             android:layout_height="1dp"
             android:background="@android:color/darker_gray" />
 
-    <ListView
-            android:id="@+id/events_dto_list"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/events_swipe_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+        <ListView
+                android:id="@+id/events_dto_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

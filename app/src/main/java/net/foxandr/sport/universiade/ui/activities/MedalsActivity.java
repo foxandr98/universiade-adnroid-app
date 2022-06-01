@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.View;
@@ -38,6 +39,15 @@ public class MedalsActivity extends AppCompatActivity {
         locale = arguments.getString("locale");
         gameId = arguments.getLong("gameId");
         setMedalsList(this);
+
+        SwipeRefreshLayout pullToRefresh = findViewById(R.id.medals_swipe_refresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setMedalsList(MedalsActivity.this);
+                pullToRefresh.setRefreshing(false);
+            }
+        });
     }
 
     private void setMedalsList(Activity activity) {

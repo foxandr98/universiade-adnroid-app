@@ -5,9 +5,16 @@
     <item
             android:id="@+id/menu_login"
             android:title="@string/login"
-            android:icon="@drawable/ic_baseline_login_24"
+            android:icon="@drawable/login"
             app:showAsAction="ifRoom|withText"
             android:orderInCategory="0"/>
+
+    <item
+            android:id="@+id/menu_logout"
+            android:title="@string/logout"
+            android:icon="@drawable/logout"
+            app:showAsAction="ifRoom|withText"
+            android:orderInCategory="5" />
 
     <item
             android:id="@+id/menu_language"

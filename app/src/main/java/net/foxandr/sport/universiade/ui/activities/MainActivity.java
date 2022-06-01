@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.ui.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         this.menu = menu;
         getMenuInflater().inflate(R.menu.main_menu, menu);
         LocaleHelper.setMenuLocaleIcon(this, menu, appLocale);
+        setLoginLogoutIcon(menu);
         return true;
     }
 
@@ -110,10 +112,9 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
                 break;
             case R.id.menu_login:
                 Intent loginForm = new Intent(this, LoginActivity.class);
-//                activityResultLauncher.launch(loginForm);
                 startActivity(loginForm);
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -122,4 +123,16 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
         LocaleHelper.setMenuLocaleIcon(this, menu, locale);
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+    public void setLoginLogoutIcon(Menu menu) {
+        Bundle args = this.getIntent().getExtras();
+        if (args == null) {
+            menu.getItem(0).setVisible(true);
+            menu.getItem(1).setVisible(false);
+        } else {
+            menu.getItem(0).setVisible(false);
+            menu.getItem(1).setVisible(true);
+        }
+    }
+
 }

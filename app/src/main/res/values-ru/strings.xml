@@ -10,6 +10,7 @@
     <string name="hello_blank_fragment">Привет чистый лист</string>
 
     <string name="login">Войти</string>
+    <string name="logout">Выйти</string>
 
     <string name="language">Язык</string>
 

@@ -2,6 +2,7 @@ package net.foxandr.sport.universiade.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,11 +38,11 @@ public class NewsDetailsActivity extends AppCompatActivity {
         Bundle arguments = getIntent().getExtras();
         locale = arguments.getString("locale");
         newsDTO = (NewsDTO) arguments.getSerializable("newsDTO");
-        setNewsDetails(this);
+        setNewsDetails();
         AndroidThreeTen.init(this);
     }
 
-    private void setNewsDetails(Context context) {
+    private void setNewsDetails() {
         TextView newsTitleView = findViewById(R.id.news_title_detailed__name);
         TextView newsTextView = findViewById(R.id.news_detailed_text);
         ImageView imageView = findViewById(R.id.news_detailed_image);

@@ -9,7 +9,9 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
+
 import androidx.appcompat.content.res.AppCompatResources;
+
 import net.foxandr.sport.universiade.ui.activities.MainActivity;
 import net.foxandr.sport.universiade.R;
 
@@ -60,7 +62,7 @@ public class LocaleHelper {
 
     public static void setMenuLocaleIcon(Activity activity, Menu menu, String lang) {
         try {
-            menu.getItem(1).setIcon(AppCompatResources.getDrawable(
+            menu.getItem(2).setIcon(AppCompatResources.getDrawable(
                     activity,
                     LOCALE_IMAGES.get(lang)
             ));

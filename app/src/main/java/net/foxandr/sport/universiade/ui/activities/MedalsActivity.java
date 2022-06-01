@@ -1,5 +1,6 @@
 package net.foxandr.sport.universiade.ui.activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -39,7 +40,7 @@ public class MedalsActivity extends AppCompatActivity {
         setMedalsList(this);
     }
 
-    private void setMedalsList(Context context) {
+    private void setMedalsList(Activity activity) {
 
         ListView medalsDTOListView = this.findViewById(R.id.medals_dto_list);
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
@@ -51,7 +52,7 @@ public class MedalsActivity extends AppCompatActivity {
 
                 List<MedalsDTO> resource = response.body();
                 MedalsDTOListAdapter medalsDTOListAdapter = new MedalsDTOListAdapter(
-                        context,
+                        activity,
                         R.layout.medals_list_item,
                         resource);
 

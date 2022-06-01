@@ -9,6 +9,7 @@
     <string name="hello_blank_fragment">Leeres Blatt</string>
 
     <string name="login">Anmeldung</string>
+    <string name="logout">Ausloggen</string>
 
     <string name="language">Sprache</string>
 

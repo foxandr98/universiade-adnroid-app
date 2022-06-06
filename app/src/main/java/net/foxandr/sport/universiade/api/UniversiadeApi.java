@@ -71,4 +71,10 @@ public interface UniversiadeApi {
                                                           @Path("volunteerName") String volunteerName);
 
 
+    @GET("admin/lost-found?")
+    Call<List<LostFoundDTOResponse>> getAdminLostFoundInfo(@Header("Authorization") String credentials,
+                                                    @Query("isRequest") boolean isRequest,
+                                                    @Query("isRequest") boolean isFound);
+
+
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="4">
+
+        <TextView
+                android:id="@+id/lostfound_admin_short_description"
+                android:text="description"
+                style="@style/great_small_vertical_text_style"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginRight="5dp"/>
+
+        <TextView
+                android:id="@+id/lostfound_admin_short_area_info"
+                android:text="lost area"
+                style="@style/great_small_vertical_text_style"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginRight="5dp"/>
+        <TextView
+                android:id="@+id/lostfound_admin_city"
+                android:text="city"
+                style="@style/great_small_vertical_text_style"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginRight="5dp"/>
+
+
+        <LinearLayout
+                android:id="@+id/lostfound_admin_request_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/lostfound_admin_contact_name"
+                    android:text="contact_name"
+                    style="@style/great_small_vertical_text_style"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginRight="5dp"/>
+
+            <TextView
+                    android:id="@+id/lostfound_admin_contact_to_notify"
+                    android:text="contact_to_notify"
+                    style="@style/great_small_vertical_text_style"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/lostfound_admin_item_image"
+            style="@style/great_text_style"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:adjustViewBounds="true"/>
+
+    <RadioButton
+            android:id="@+id/lostfound_admin_item_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+</LinearLayout>

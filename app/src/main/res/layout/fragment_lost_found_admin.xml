@@ -8,7 +8,7 @@
         android:background="@color/light_gray">
 
     <Button
-            android:id="@+id/lostfound_admin_button"
+            android:id="@+id/lostfound_admin_find_items_button"
             android:text="@string/admin_lostfound_button_find_items"
             android:textSize="26sp"
             android:gravity="center"

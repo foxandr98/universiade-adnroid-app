@@ -11,6 +11,7 @@
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/activity_events.xml" value="0.2640625" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/activity_events_details.xml" value="0.25729166666666664" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/activity_lostfound_finding_admin.xml" value="0.2" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/activity_medals.xml" value="0.21829710144927536" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/activity_news_details.xml" value="0.2" />
@@ -31,6 +32,8 @@
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/fragment_news.xml" value="0.2586050724637681" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/fragment_volunteer_schedule.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/games_spinner_list_item.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/lostfound_admin_items_list_item.xml" value="0.16983695652173914" />
+        <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/lostfound_admin_list_item.xml" value="0.16983695652173914" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/medals_list_item.xml" value="0.264" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/news_list_item.xml" value="0.23177083333333334" />
         <entry key="..\:/Users/Fox/AndroidStudioProjects/UniversiadeApp/app/src/main/res/layout/sports_list_item.xml" value="0.2640625" />

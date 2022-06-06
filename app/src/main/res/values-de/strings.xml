@@ -83,4 +83,7 @@
     <string name="volunteers_schedule">Mein Terminplan</string>
     <string name="extra_info">Extra information</string>
 
+    <string name="admin_lostfound_title">Lost Found Admin</string>
+    <string name="admin_lostfound_button_find_items">Elemente finden</string>
+
 </resources>

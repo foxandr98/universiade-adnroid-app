@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
                     titles.add(getString(R.string.volunteers_schedule));
                 } else {
                     fragmentList.add(LostFoundAdminFragment.newInstance(appLocale, "fd"));
-                    titles.add("Бюро находок");
+                    titles.add(getString(R.string.admin_lostfound_title));
                 }
 
             }

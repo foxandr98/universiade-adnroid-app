@@ -9,7 +9,7 @@
 
     <Button
             android:id="@+id/lostfound_admin_button"
-            android:text="Поиск предметов"
+            android:text="@string/admin_lostfound_button_find_items"
             android:textSize="26sp"
             android:gravity="center"
             android:textStyle="bold"

@@ -82,4 +82,8 @@
 
     <string name="volunteers_schedule">Мое \nрасписание</string>
     <string name="extra_info">Доп. информация</string>
+
+    <string name="admin_lostfound_title">Админ бюро находок</string>
+    <string name="admin_lostfound_button_find_items">Поиск предметов</string>
+
 </resources>

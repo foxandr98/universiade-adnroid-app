@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.ui.home.HomeFragment;
+import net.foxandr.sport.universiade.ui.lostfound.LostFoundAdminFragment;
 import net.foxandr.sport.universiade.ui.users.LoggedInUserDTO;
 import net.foxandr.sport.universiade.ui.users.volunteers.VolunteerScheduleFragment;
 import net.foxandr.sport.universiade.utils.ViewPager2Adapter;
@@ -70,7 +71,11 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
                 if (loggedInUserDTO.getAuthorities().get(0).getAuthority().equals("ROLE_ВОЛОНТЕР")) {
                     fragmentList.add(VolunteerScheduleFragment.newInstance(appLocale, loggedInUserDTO));
                     titles.add(getString(R.string.volunteers_schedule));
+                } else {
+                    fragmentList.add(LostFoundAdminFragment.newInstance(appLocale, "fd"));
+                    titles.add("Бюро находок");
                 }
+
             }
         } else {
             fragmentList.add(LostFoundFragment.newInstance().newInstance());

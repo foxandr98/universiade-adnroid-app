@@ -55,7 +55,7 @@
     <string name="lostfound_hint_your_name">Например: Александр</string>
     <string name="lostfound_your_contacts">Ваши контакты</string>
     <string name="lostfound_hint_your_contacts">Например: Телефон +7–912–333–33–33, Почта: diplom@mail.ru</string>
-    <string name="lostfound_send_request">Отправить запрос</string>
+    <string name="lostfound_send_request">Отправить</string>
 
     <string name="lostfound_success">Запрос отправлен:\u0020</string>
 

@@ -104,7 +104,7 @@ public class HomeFragment extends Fragment {
 
                 setGamesInfo(view, resource.get(0));
 
-                getSports(view, resource.get(0).getGameId());
+//                getSports(view, resource.get(0).getGameId());
 
                 gamesDTOListSpinnerView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.lostfound.LostFoundAdminFragment"
+        android:orientation="vertical"
+        android:background="@color/beige">
+
+    <Button
+            android:id="@+id/lostfound_admin_button"
+            android:text="Поиск предметов"
+            android:textSize="26sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/lostfound_admin_common_part"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"/>
+
+</LinearLayout>

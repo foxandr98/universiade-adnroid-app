@@ -137,7 +137,9 @@ public class LostFoundFragment extends Fragment {
                     lostFoundDTO.put("itemDescription", describeItemView.getText().toString());
                     lostFoundDTO.put("lostItemArea", placeItemView.getText().toString());
                     lostFoundDTO.put("cityName", cityItemView.getText().toString());
+
                     lostFoundDTO.put("isRequest", "true");
+
                     lostFoundDTO.put("contactName", nameView.getText().toString());
                     lostFoundDTO.put("contactToNotify", contactsView.getText().toString());
 

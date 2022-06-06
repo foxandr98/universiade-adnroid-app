@@ -66,40 +66,52 @@
                 android:maxLength="100"
                 android:importantForAutofill="no"/>
 
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lostfound_your_name"
-                style="@style/great_bold_text_style" />
-
-        <EditText
-                android:id="@+id/lostfound_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/lostfound_hint_your_name"
-                style="@style/great_text_style"
-                android:maxLength="50"
-                android:layout_weight="2"
-                android:importantForAutofill="no"/>
 
 
-        <TextView
+        <!-- Доп информация, если запрос -->
+        <LinearLayout
+                android:id="@+id/lostfound_contacts_info_layout"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lostfound_your_contacts"
-                style="@style/great_bold_text_style" />
+                android:layout_height="wrap_content">
 
-        <EditText
-                android:id="@+id/lostfound_contacts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/lostfound_hint_your_contacts"
-                style="@style/great_text_style"
-                android:maxLength="100"
-                android:minLines="2"
-                android:maxLines="2"
-                android:layout_weight="1"
-                android:importantForAutofill="no"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lostfound_your_name"
+                    style="@style/great_bold_text_style" />
+
+            <EditText
+                    android:id="@+id/lostfound_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lostfound_hint_your_name"
+                    style="@style/great_text_style"
+                    android:maxLength="50"
+                    android:layout_weight="2"
+                    android:importantForAutofill="no"/>
+
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lostfound_your_contacts"
+                    style="@style/great_bold_text_style" />
+
+            <EditText
+                    android:id="@+id/lostfound_contacts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lostfound_hint_your_contacts"
+                    style="@style/great_text_style"
+                    android:maxLength="100"
+                    android:minLines="2"
+                    android:maxLines="2"
+                    android:layout_weight="1"
+                    android:importantForAutofill="no"/>
+
+
+        </LinearLayout>
 
         <TextView
                 android:layout_width="match_parent"

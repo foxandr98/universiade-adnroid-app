@@ -32,7 +32,7 @@ import android.widget.Toast;
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
-import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
+import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTO;
 import net.foxandr.sport.universiade.utils.CustomToast;
 import net.foxandr.sport.universiade.utils.TimeParser;
 
@@ -161,12 +161,12 @@ public class LostFoundFragment extends Fragment {
                     }
 
                     UniversiadeApi api = UniversiadeService.getInstance().getApi();
-                    Call<LostFoundDTOResponse> call = api.postLostfoundRequest(lostFoundDTO, imageFile);
-                    call.enqueue(new Callback<LostFoundDTOResponse>() {
+                    Call<LostFoundDTO> call = api.postLostfoundRequest(lostFoundDTO, imageFile);
+                    call.enqueue(new Callback<LostFoundDTO>() {
                         @Override
-                        public void onResponse(Call<LostFoundDTOResponse> call, Response<LostFoundDTOResponse> response) {
+                        public void onResponse(Call<LostFoundDTO> call, Response<LostFoundDTO> response) {
                             Log.d("TAG", response.code() + "");
-                            LostFoundDTOResponse resource = response.body();
+                            LostFoundDTO resource = response.body();
 
                             String timeSent = TimeParser.getFormattedOffsetDataTimeFromString(
                                     resource.getCreatedOn(),
@@ -186,7 +186,7 @@ public class LostFoundFragment extends Fragment {
                         }
 
                         @Override
-                        public void onFailure(Call<LostFoundDTOResponse> call, Throwable t) {
+                        public void onFailure(Call<LostFoundDTO> call, Throwable t) {
                             Log.d("ERROR: ", "Lostfound query network error");
                             call.cancel();
                         }

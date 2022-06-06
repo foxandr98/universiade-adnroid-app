@@ -11,21 +11,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.foxandr.sport.universiade.R;
-import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
+import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTO;
 import net.foxandr.sport.universiade.utils.ImageDownloader;
 
 import java.util.List;
 
-public class LostFoundAdminItemsListAdapter extends ArrayAdapter<LostFoundDTOResponse> {
+public class LostFoundAdminItemsListAdapter extends ArrayAdapter<LostFoundDTO> {
 
     private LayoutInflater inflater;
     private int layout;
-    private List<LostFoundDTOResponse> lostFoundAdminItemsList;
+    private List<LostFoundDTO> lostFoundAdminItemsList;
     private boolean isRequests;
 
 
     public LostFoundAdminItemsListAdapter(Context context, int resource,
-                                          List<LostFoundDTOResponse> lostFoundAdminItemsList,
+                                          List<LostFoundDTO> lostFoundAdminItemsList,
                                           boolean isRequests) {
         super(context, resource, lostFoundAdminItemsList);
         this.inflater = LayoutInflater.from(context);
@@ -43,18 +43,18 @@ public class LostFoundAdminItemsListAdapter extends ArrayAdapter<LostFoundDTORes
         TextView cityView = view.findViewById(R.id.lostfound_admin_city);
         ImageView itemImageView = view.findViewById(R.id.lostfound_admin_item_image);
 
-        LostFoundDTOResponse lostFoundDTOResponse = lostFoundAdminItemsList.get(position);
+        LostFoundDTO LostFoundDTO = lostFoundAdminItemsList.get(position);
 
-        setTextWithSubstring(shortDescView, lostFoundDTOResponse.getItemDescription(), 70);
-        setTextWithSubstring(shortAreView, lostFoundDTOResponse.getLostItemArea(), 70);
-        cityView.setText(lostFoundDTOResponse.getCityName());
-        ImageDownloader.getImageByUuid(itemImageView, lostFoundDTOResponse.getImagesEntity().getUuid());
+        setTextWithSubstring(shortDescView, LostFoundDTO.getItemDescription(), 70);
+        setTextWithSubstring(shortAreView, LostFoundDTO.getLostItemArea(), 70);
+        cityView.setText(LostFoundDTO.getCityName());
+        ImageDownloader.getImageByUuid(itemImageView, LostFoundDTO.getImagesEntity().getUuid());
 
         if (isRequests) {
             TextView nameView = view.findViewById(R.id.lostfound_admin_contact_name);
             TextView contactView = view.findViewById(R.id.lostfound_admin_contact_to_notify);
-            nameView.setText(lostFoundDTOResponse.getLostFoundRequestsEntity().getContactName());
-            contactView.setText(lostFoundDTOResponse.getLostFoundRequestsEntity().getContactToNotify());
+            nameView.setText(LostFoundDTO.getLostFoundRequestsEntity().getContactName());
+            contactView.setText(LostFoundDTO.getLostFoundRequestsEntity().getContactToNotify());
         } else {
             LinearLayout lostfoundContactsPart = view.findViewById(R.id.lostfound_admin_request_layout);
             lostfoundContactsPart.setVisibility(View.GONE);

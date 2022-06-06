@@ -5,7 +5,7 @@ import net.foxandr.sport.universiade.ui.home.games.events.EventsDTO;
 import net.foxandr.sport.universiade.ui.home.games.events.competitors.CompetitorsResultsDTO;
 import net.foxandr.sport.universiade.ui.home.games.sports.SportsDTO;
 import net.foxandr.sport.universiade.ui.users.LoggedInUserDTO;
-import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
+import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTO;
 import net.foxandr.sport.universiade.ui.medals.model.MedalsDTO;
 import net.foxandr.sport.universiade.ui.news.model.NewsDTO;
 import net.foxandr.sport.universiade.ui.users.volunteers.VolunteerScheduleDTO;
@@ -17,6 +17,8 @@ import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
@@ -49,8 +51,8 @@ public interface UniversiadeApi {
 
     @Multipart
     @POST("lost-found")
-    Call<LostFoundDTOResponse> postLostfoundRequest(@Part("lostFoundDTO") Map<String, String> lostFoundDTO,
-                                                    @Part MultipartBody.Part imageFile);
+    Call<LostFoundDTO> postLostfoundRequest(@Part("lostFoundDTO") Map<String, String> lostFoundDTO,
+                                            @Part MultipartBody.Part imageFile);
 
 
     @GET("images/{imageUuid}")
@@ -73,13 +75,12 @@ public interface UniversiadeApi {
 
 
     @GET("admin/lost-found?")
-    Call<List<LostFoundDTOResponse>> getAdminLostFoundInfo(@Header("Authorization") String credentials,
-                                                           @Query("isRequest") boolean isRequest,
-                                                           @Query("isRequest") boolean isFound);
-
+    Call<List<LostFoundDTO>> getAdminLostFoundInfo(@Header("Authorization") String credentials,
+                                                   @Query("isRequest") boolean isRequest,
+                                                   @Query("isRequest") boolean isFound);
 
     @POST("admin/lost-found/{itemId}")
-    Call<Boolean> updateLostFoundItemSetIsFound(@Path("itemId") Long itemId,
-                                                @Part("isFound") Boolean isFound);
+    Call<Boolean> updateLostFoundItemSetIsFound(@Header("Authorization") String credentials,
+                                                @Path("itemId") Long itemId);
 
 }

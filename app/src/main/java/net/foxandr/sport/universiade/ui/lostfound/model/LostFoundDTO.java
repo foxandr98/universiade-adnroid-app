@@ -7,7 +7,7 @@ import net.foxandr.sport.universiade.commondto.ImageEntity;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LostFoundDTOResponse {
+public class LostFoundDTO {
 
     @JsonProperty("id")
     private Long id;

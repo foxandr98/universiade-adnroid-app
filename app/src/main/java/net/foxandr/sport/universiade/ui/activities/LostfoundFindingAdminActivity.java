@@ -8,16 +8,19 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import net.foxandr.sport.universiade.R;
 import net.foxandr.sport.universiade.api.UniversiadeApi;
 import net.foxandr.sport.universiade.api.UniversiadeService;
 import net.foxandr.sport.universiade.ui.lostfound.adapters.LostFoundAdminItemsListAdapter;
-import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTOResponse;
+import net.foxandr.sport.universiade.ui.lostfound.model.LostFoundDTO;
 import net.foxandr.sport.universiade.ui.users.LoggedInUserDTO;
 import net.foxandr.sport.universiade.utils.PasswordEncoder;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,10 +29,10 @@ import retrofit2.Response;
 public class LostfoundFindingAdminActivity extends AppCompatActivity {
     private LoggedInUserDTO loggedInUserDTO;
 
-    private LostFoundDTOResponse chosenRequestItem;
+    private LostFoundDTO chosenRequestItem;
     private RadioButton previousChoiceRequestItemRadioButton;
 
-    private LostFoundDTOResponse chosenStockItem;
+    private LostFoundDTO chosenStockItem;
     private RadioButton previousChoiceStockItemRadioButton;
 
     @Override
@@ -46,8 +49,11 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
         Button applyFoundButton = findViewById(R.id.lostfound_admin_items_found_button);
         applyFoundButton.setOnClickListener(
                 x -> {
-
-
+                    if (chosenRequestItem != null)
+                        updateIsFound(chosenRequestItem, true);
+                    if (chosenStockItem != null)
+                        updateIsFound(chosenStockItem, false);
+                    Toast.makeText(x.getContext(), "Готово!", Toast.LENGTH_LONG).show();
                 }
         );
 
@@ -79,7 +85,7 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
                         previousChoiceRequestItemRadioButton.setChecked(false);
                     previousChoiceRequestItemRadioButton = view.findViewById(R.id.lostfound_admin_item_radio_button);
                     previousChoiceRequestItemRadioButton.toggle();
-                    chosenRequestItem = (LostFoundDTOResponse) parent.getItemAtPosition(position);
+                    chosenRequestItem = (LostFoundDTO) parent.getItemAtPosition(position);
                 }
         );
     }
@@ -93,7 +99,7 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
                         previousChoiceStockItemRadioButton.setChecked(false);
                     previousChoiceStockItemRadioButton = view.findViewById(R.id.lostfound_admin_item_radio_button);
                     previousChoiceStockItemRadioButton.toggle();
-                    chosenStockItem = (LostFoundDTOResponse) parent.getItemAtPosition(position);
+                    chosenStockItem = (LostFoundDTO) parent.getItemAtPosition(position);
                 }
         );
     }
@@ -103,12 +109,12 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
                 loggedInUserDTO.getUsername(),
                 loggedInUserDTO.getPassword());
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
-        Call<List<LostFoundDTOResponse>> call = api.getAdminLostFoundInfo(token, isRequest, isFound);
-        call.enqueue(new Callback<List<LostFoundDTOResponse>>() {
+        Call<List<LostFoundDTO>> call = api.getAdminLostFoundInfo(token, isRequest, isFound);
+        call.enqueue(new Callback<List<LostFoundDTO>>() {
             @Override
-            public void onResponse(Call<List<LostFoundDTOResponse>> call, Response<List<LostFoundDTOResponse>> response) {
+            public void onResponse(Call<List<LostFoundDTO>> call, Response<List<LostFoundDTO>> response) {
                 Log.d("TAG", response.code() + "");
-                List<LostFoundDTOResponse> resource = response.body();
+                List<LostFoundDTO> resource = response.body();
                 LostFoundAdminItemsListAdapter lostFoundAdminItemsListAdapter = new LostFoundAdminItemsListAdapter(
                         LostfoundFindingAdminActivity.this,
                         R.layout.lostfound_admin_list_item,
@@ -118,21 +124,27 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<LostFoundDTOResponse>> call, Throwable t) {
+            public void onFailure(Call<List<LostFoundDTO>> call, Throwable t) {
                 Log.d("ERROR: ", "Admin lostfound query network error");
                 call.cancel();
             }
         });
     }
 
-    private void updateIsFound(LostFoundDTOResponse lostFoundDTOResponse){
+    private void updateIsFound(LostFoundDTO lostFoundDTO, boolean isRequest) {
+        String token = PasswordEncoder.getAuthToken(
+                loggedInUserDTO.getUsername(),
+                loggedInUserDTO.getPassword());
         UniversiadeApi api = UniversiadeService.getInstance().getApi();
-        Call<Boolean> call = api.updateLostFoundItemSetIsFound(lostFoundDTOResponse.getId(), true);
+        Call<Boolean> call = api.updateLostFoundItemSetIsFound(token, lostFoundDTO.getId());
         call.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 Log.d("TAG", response.code() + "");
-                Boolean resource = response.body();
+                if (isRequest)
+                    setRequestsList();
+                else
+                    setStoredItemsList();
             }
 
             @Override

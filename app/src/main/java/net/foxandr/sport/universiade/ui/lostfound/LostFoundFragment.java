@@ -25,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,9 @@ import retrofit2.Response;
 
 public class LostFoundFragment extends Fragment {
 
+    private static final String ARG_PARAM1 = "isAdminFragment";
+    private boolean isForAdmin;
+
     Uri imageUri;
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
 
@@ -69,14 +73,20 @@ public class LostFoundFragment extends Fragment {
     public LostFoundFragment() {
     }
 
-    public static LostFoundFragment newInstance() {
-        return new LostFoundFragment();
+    public static LostFoundFragment newInstance(boolean isAdminFragment) {
+        LostFoundFragment fragment = new LostFoundFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(ARG_PARAM1, isAdminFragment);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            isForAdmin = getArguments().getBoolean(ARG_PARAM1);
+        }
     }
 
     @Override
@@ -96,9 +106,14 @@ public class LostFoundFragment extends Fragment {
         describeItemView = view.findViewById(R.id.lostfound_item);
         placeItemView = view.findViewById(R.id.lostfound_place);
         cityItemView = view.findViewById(R.id.lostfound_city);
+        lostfoundSendButton = view.findViewById(R.id.lostfound_send_button);
         nameView = view.findViewById(R.id.lostfound_name);
         contactsView = view.findViewById(R.id.lostfound_contacts);
-        lostfoundSendButton = view.findViewById(R.id.lostfound_send_button);
+
+        if (isForAdmin) {
+            LinearLayout lostfoundContactsPart = view.findViewById(R.id.lostfound_contacts_info_layout);
+            lostfoundContactsPart.setVisibility(View.GONE);
+        }
 
         ActivityResultLauncher<String> mGetContent = registerForActivityResult(
                 new ActivityResultContracts.GetContent(),
@@ -119,7 +134,6 @@ public class LostFoundFragment extends Fragment {
                     }
                 });
 
-
         lostfoundSendButton.setOnClickListener(
                 x -> {
                     if (!(isAllFieldFilled((ViewGroup) getView()) && imageUri != null)) {
@@ -138,10 +152,13 @@ public class LostFoundFragment extends Fragment {
                     lostFoundDTO.put("lostItemArea", placeItemView.getText().toString());
                     lostFoundDTO.put("cityName", cityItemView.getText().toString());
 
-                    lostFoundDTO.put("isRequest", "true");
-
-                    lostFoundDTO.put("contactName", nameView.getText().toString());
-                    lostFoundDTO.put("contactToNotify", contactsView.getText().toString());
+                    if (isForAdmin) {
+                        lostFoundDTO.put("isRequest", "false");
+                    } else {
+                        lostFoundDTO.put("isRequest", "true");
+                        lostFoundDTO.put("contactName", nameView.getText().toString());
+                        lostFoundDTO.put("contactToNotify", contactsView.getText().toString());
+                    }
 
                     UniversiadeApi api = UniversiadeService.getInstance().getApi();
                     Call<LostFoundDTOResponse> call = api.postLostfoundRequest(lostFoundDTO, imageFile);
@@ -164,7 +181,7 @@ public class LostFoundFragment extends Fragment {
                             );
                             CustomToast.showCustomToast(toast, Gravity.CENTER, 30);
 
-                            clearForms((ViewGroup)getView());
+                            clearForms((ViewGroup) getView());
                             clearFields();
                         }
 
@@ -176,11 +193,6 @@ public class LostFoundFragment extends Fragment {
                     });
                 }
         );
-    }
-
-
-    public static RequestBody toRequestBody(String value) {
-        return RequestBody.create(value, MediaType.parse("text/plain"));
     }
 
     public static MultipartBody.Part prepareFileTOSend(Context context, Uri imageUri) {
@@ -227,6 +239,8 @@ public class LostFoundFragment extends Fragment {
             View view = group.getChildAt(i);
             if (view instanceof EditText) {
                 TextView textView = (EditText) view;
+                if((textView == nameView || textView == contactsView) && isForAdmin)
+                    continue;
                 if (TextUtils.isEmpty(textView.getText().toString())) {
                     textView.setError(getResources().getString(R.string.lostfound_bad_fill_data));
                     isFilled = false;
@@ -243,9 +257,4 @@ public class LostFoundFragment extends Fragment {
         lostFoundDTO = null;
         imageUri = null;
     }
-
-    private boolean isEmpty(EditText etText) {
-        return etText.getText().toString().trim().length() <= 0;
-    }
-
 }

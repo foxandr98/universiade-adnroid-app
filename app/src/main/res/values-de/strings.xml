@@ -55,6 +55,7 @@
     <string name="lostfound_hint_your_name">Zum Beispiel: Alexander</string>
     <string name="lostfound_your_contacts">Deine Kontakte</string>
     <string name="lostfound_hint_your_contacts">Zum Beispiel: Telefon +7–912–333–33–33, Mail: diplom@mail.ru</string>
+    <string name="choose_the_image">Wähle ein Bild</string>
     <string name="lostfound_send_request">Sende</string>
 
     <string name="lostfound_success">Anfrage eingereicht:\u0020</string>
@@ -81,4 +82,5 @@
 
     <string name="volunteers_schedule">Mein Terminplan</string>
     <string name="extra_info">Extra information</string>
+
 </resources>

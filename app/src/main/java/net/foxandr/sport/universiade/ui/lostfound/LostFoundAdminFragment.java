@@ -60,7 +60,7 @@ public class LostFoundAdminFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Fragment fragment = LostFoundFragment.newInstance();
+        Fragment fragment = LostFoundFragment.newInstance(true);
         getChildFragmentManager().beginTransaction()
                 .add(R.id.lostfound_admin_common_part, fragment, null)
                 .commit();

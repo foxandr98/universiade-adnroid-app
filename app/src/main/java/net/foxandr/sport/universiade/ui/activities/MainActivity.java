@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements TabLayoutMediator
 
             }
         } else {
-            fragmentList.add(LostFoundFragment.newInstance().newInstance());
+            fragmentList.add(LostFoundFragment.newInstance(false));
             titles.add(getString(R.string.tab_lost_found));
         }
 

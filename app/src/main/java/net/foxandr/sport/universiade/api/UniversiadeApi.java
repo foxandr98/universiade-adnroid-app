@@ -16,6 +16,7 @@ import java.util.Map;
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
@@ -73,8 +74,12 @@ public interface UniversiadeApi {
 
     @GET("admin/lost-found?")
     Call<List<LostFoundDTOResponse>> getAdminLostFoundInfo(@Header("Authorization") String credentials,
-                                                    @Query("isRequest") boolean isRequest,
-                                                    @Query("isRequest") boolean isFound);
+                                                           @Query("isRequest") boolean isRequest,
+                                                           @Query("isRequest") boolean isFound);
 
+
+    @POST("admin/lost-found/{itemId}")
+    Call<Boolean> updateLostFoundItemSetIsFound(@Path("itemId") Long itemId,
+                                                @Part("isFound") Boolean isFound);
 
 }

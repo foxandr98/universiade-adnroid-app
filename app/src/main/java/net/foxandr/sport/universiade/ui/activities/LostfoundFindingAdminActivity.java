@@ -47,6 +47,7 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
         applyFoundButton.setOnClickListener(
                 x -> {
 
+
                 }
         );
 
@@ -123,4 +124,23 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void updateIsFound(LostFoundDTOResponse lostFoundDTOResponse){
+        UniversiadeApi api = UniversiadeService.getInstance().getApi();
+        Call<Boolean> call = api.updateLostFoundItemSetIsFound(lostFoundDTOResponse.getId(), true);
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                Log.d("TAG", response.code() + "");
+                Boolean resource = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                Log.d("ERROR: ", "Admin lostfound update isFound query network error");
+                call.cancel();
+            }
+        });
+    }
+
 }

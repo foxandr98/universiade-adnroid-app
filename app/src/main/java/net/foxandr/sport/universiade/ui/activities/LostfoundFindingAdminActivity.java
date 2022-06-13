@@ -57,23 +57,23 @@ public class LostfoundFindingAdminActivity extends AppCompatActivity {
                 }
         );
 
-        SwipeRefreshLayout pullToRefreshRequests = findViewById(R.id.lostfound_admin_request_list_swipe_refresh);
-        pullToRefreshRequests.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                setRequestsList();
-                pullToRefreshRequests.setRefreshing(false);
-            }
-        });
-
-        SwipeRefreshLayout pullToRefreshStock = findViewById(R.id.lostfound_admin_items_stock_list_swipe_refresh);
-        pullToRefreshStock.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                setStoredItemsList();
-                pullToRefreshStock.setRefreshing(false);
-            }
-        });
+//        SwipeRefreshLayout pullToRefreshRequests = findViewById(R.id.lostfound_admin_request_list_swipe_refresh);
+//        pullToRefreshRequests.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                setRequestsList();
+//                pullToRefreshRequests.setRefreshing(false);
+//            }
+//        });
+//
+//        SwipeRefreshLayout pullToRefreshStock = findViewById(R.id.lostfound_admin_items_stock_list_swipe_refresh);
+//        pullToRefreshStock.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                setStoredItemsList();
+//                pullToRefreshStock.setRefreshing(false);
+//            }
+//        });
     }
 
     private void setRequestsList() {

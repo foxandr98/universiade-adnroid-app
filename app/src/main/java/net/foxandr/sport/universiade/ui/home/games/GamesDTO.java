@@ -21,6 +21,9 @@ public class GamesDTO {
     @JsonProperty("countryName")
     private String countryName;
 
+    @JsonProperty("cityName")
+    private String cityName;
+
     @JsonProperty("gameName")
     private String gameName;
 
@@ -71,5 +74,21 @@ public class GamesDTO {
 
     public void setGameName(String gameName) {
         this.gameName = gameName;
+    }
+
+    public boolean isSummer() {
+        return isSummer;
+    }
+
+    public void setSummer(boolean summer) {
+        isSummer = summer;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }

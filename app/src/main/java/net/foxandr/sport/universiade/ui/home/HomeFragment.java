@@ -186,7 +186,10 @@ public class HomeFragment extends Fragment {
         ImageView gamesDTOIconView = view.findViewById(R.id.games_season_icon);
 
         gamesCountry.setText(gameInfo.getCountryName());
-        gamesNameView.setText(gameInfo.getGameName());
+        String gameFullName = String.format("%s. \n%s: %s", gameInfo.getGameName(),
+                getResources().getString(R.string.lostfound_city),
+                gameInfo.getCityName());
+        gamesNameView.setText(gameFullName);
         boolean isSummer = gameInfo.getIsSummer();
         gamesDTOIconView.setImageResource(isSummer ? R.drawable.games_summer : R.drawable.games_winter);
         currentGameId = gameInfo.getGameId();

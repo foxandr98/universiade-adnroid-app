@@ -54,7 +54,6 @@ public interface UniversiadeApi {
     Call<LostFoundDTO> postLostfoundRequest(@Part("lostFoundDTO") Map<String, String> lostFoundDTO,
                                             @Part MultipartBody.Part imageFile);
 
-
     @GET("images/{imageUuid}")
     Call<ResponseBody> getImageBytesByUuid(@Path("imageUuid") String imageUuid);
 

@@ -86,4 +86,10 @@
     <string name="admin_lostfound_title">Lost Found Admin</string>
     <string name="admin_lostfound_button_find_items">Elemente finden</string>
 
+    <string name="event_details_Discipline">Disziplin</string>
+    <string name="event_details_gender">Geschlecht</string>
+    <string name="event_details_type">Typ</string>
+    <string name="event_details_stage">Bühne</string>
+    <string name="event_details_stadium">Stadion</string>
+
 </resources>

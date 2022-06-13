@@ -23,5 +23,4 @@ public class DataBaseEnumsUtils {
         }
         categoryView.setText(context.getResources().getString(genderTypeResource));
     }
-
 }

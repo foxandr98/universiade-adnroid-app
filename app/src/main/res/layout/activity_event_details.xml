@@ -14,7 +14,7 @@
 
         <TextView
                 android:id="@+id/events_details_discipline_name"
-                android:text="Дисциплина"
+                android:text="@string/event_details_Discipline"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
@@ -34,7 +34,7 @@
 
             <TextView
                     android:id="@+id/events_details_category_gender_name"
-                    android:text="Гендер"
+                    android:text="@string/event_details_gender"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -47,7 +47,7 @@
 
             <TextView
                     android:id="@+id/events_details_category_type_name"
-                    android:text="Тип"
+                    android:text="@string/event_details_type"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -97,7 +97,7 @@
 
     <TextView
             android:id="@+id/events_details_stage"
-            android:text="Стадия"
+            android:text="@string/event_details_stage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/great_bold_text_style"
@@ -114,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="60dp"
-                android:text="Stadium"
+                android:text="@string/event_details_stadium"
                 style="@style/great_text_style"
                 android:backgroundTint="@color/purple_700" />
     </LinearLayout>

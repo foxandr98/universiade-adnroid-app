@@ -42,7 +42,6 @@ public class UniversiadeService {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.level(HttpLoggingInterceptor.Level.BODY);
         httpClient.addInterceptor(logging);
-
         return httpClient.build();
     }
 

@@ -86,4 +86,10 @@
     <string name="admin_lostfound_title">Админ бюро находок</string>
     <string name="admin_lostfound_button_find_items">Поиск предметов</string>
 
+    <string name="event_details_Discipline">Дисциплина</string>
+    <string name="event_details_gender">Гендер</string>
+    <string name="event_details_type">Тип</string>
+    <string name="event_details_stage">Стадия</string>
+    <string name="event_details_stadium">Стадион</string>
+
 </resources>
